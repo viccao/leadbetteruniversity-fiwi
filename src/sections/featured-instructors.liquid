@@ -1,0 +1,108 @@
+{%- comment -%}
+  This is a required section for the Shopify Theme Store.
+  It is available when you add "Collection list" section in the Theme Editor.
+
+  Theme Store required settings
+  - Heading: title of the collection list section
+  - Collection
+{%- endcomment -%}
+
+<section class="instructors pt-lg-5 pb-lg-5 d-lg-block d-none">
+
+  <div class="container">
+  <div class="row">
+
+    <div class="col-auto mx-auto pt-lg-5"><h3 class="brand"><span>{{ section.settings.title | escape }}</span></h3></div>
+    </div>
+
+  <div class="row">
+
+
+  {% for block in section.blocks %}
+
+
+
+      <div class="col-lg-4 col-md-6">
+
+
+
+
+        <div class="instructor">
+          <div class="behind">
+            <div>
+              <h5>{{ block.settings.name }}</h5>
+              <h6><span>{{ block.settings.title }}</span></h6>
+            </div>
+
+          </div>
+          {% if block.settings.headshot != blank %}
+          <div class="headshot">
+
+            <img src="{{ block.settings.headshot | img_url: '2x' }}">
+
+          </div>
+          {% endif %}
+
+
+
+        </div>
+
+
+
+  </div>
+  {% endfor %}
+
+  {% if section.blocks.size == 0 %}
+    {% include 'no-blocks' %}
+  {% endif %}
+
+      </div>
+  </div>
+
+</section>
+
+{% schema %}
+  {
+    "name": "Featured instructors",
+    "max_blocks": 6,
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Our Industry-Leading Experts"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Instructor",
+        "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Title"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Instructor Name",
+          "default": "Instructor Name"
+        },
+       {
+          "type": "image_picker",
+          "id": "headshot",
+          "label": "Headshot"
+        }
+      ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured instructors",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}

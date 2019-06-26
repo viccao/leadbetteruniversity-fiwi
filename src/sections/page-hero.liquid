@@ -1,0 +1,112 @@
+{%- comment -%}
+  This is a required section for the Shopify Theme Store.
+  It is available when you add "Rich text" section on the Theme Editor.
+
+  Theme Store required settings
+  - Heading: title of the rich text section
+  - Text: description of the rich text section
+{%- endcomment -%}
+
+<header role="banner" class="dale-margin">
+
+      <div class="bg">
+
+          {%- if section.settings.hero != blank -%}
+            <div class="lazyload" data-bgset="{% include 'responsive-bg-image', image: section.settings.hero %}"></div>
+          {%- endif -%}
+
+
+      </div>
+
+
+  <div class="container">
+     <div class="row">
+        <div class="col-auto d-lg-block d-none">
+            <h3 class="condensed brand mb-2">Welcome to Leadbetter Golf University</h3>
+
+        </div>
+     </div>
+  </div>
+
+    <div class="bar">
+      <div class="behind">
+        <div class="lazyload" data-bgset="{% include 'responsive-bg-image', image: section.settings.hero %}"></div>
+      </div>
+
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-7 col-sm-12">
+            {%- if section.settings.title != blank -%}
+            <h1>{{ section.settings.title | escape }}</h1>
+            {%- endif -%}
+
+            {%- if section.settings.text != blank -%}
+            <h3 class="text-white condensed d-lg-block d-none">{{ section.settings.text }}</h3>
+            {%- endif -%}
+
+            <h3 class="text-white condensed d-lg-none d-block">Welcome to Leadbetter Golf University</h3>
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="container d-lg-block d-none">
+
+      <div class="rte">
+        <div class="row">
+        <div class="col-sm-5 pt-5 pb-4">
+
+
+          {%- if section.settings.intro != blank -%}
+          {{ section.settings.intro }}
+          {%- endif -%}
+
+        </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </header>
+
+
+{% schema %}
+  {
+    "name": "Page hero",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Page Intro Block"
+      },
+      {
+        "type": "text",
+        "id": "text",
+        "label": "Slogan",
+        "default": "Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store."
+      },
+      {
+        "type": "richtext",
+        "id": "intro",
+        "label": "Intro",
+        "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+      },
+      {
+        "type": "image_picker",
+        "id": "hero",
+        "label": "Hero Image"
+      }
+    ],
+    "presets": [{
+        "name": "Page hero",
+        "category": "Text"
+    }]
+  }
+{% endschema %}

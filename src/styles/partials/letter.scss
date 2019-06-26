@@ -1,0 +1,15 @@
+.david-letter {
+  padding: 4rem 0;
+
+  .bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: 15% 50%;
+    filter: grayscale(1);
+    opacity: .37;
+  }
+}

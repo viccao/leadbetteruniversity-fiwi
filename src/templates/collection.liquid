@@ -1,0 +1,187 @@
+{% paginate collection.products by 12 %}
+  <header role="banner" class="dale-margin">
+
+
+    <div class="bar">
+      <div class="bg" style="background: var(--dark);">
+      </div>
+
+
+
+      <div class="container">
+        <h1>
+          {% if collection.title == 'Products' %}
+          All Courses
+          {% else %}
+          {{ collection.title }}
+          {% endif %}
+        </h1>
+      </div>
+    </div>
+
+
+    <div class="container">
+
+    {% if collection.description != blank %}
+      <div class="rte">
+        <div class="row">
+        <div class="col-sm-10 pt-5 pb-4">
+          <p class="lead">{{ collection.description }}</p>
+        </div>
+        </div>
+
+
+      </div>
+    {% endif %}
+    </div>
+
+  </header>
+  <section class="related">
+
+    <div class="container">
+      <div class="row">
+
+     {% assign current = page_title | handle %}
+
+      {% for product in collection.products %}
+
+
+
+
+        {% if product.handle != current %}
+
+      <div class="col-lg-4 col-md-6 mb-5" id="{{ product.handle }}">
+
+        <div class="card {% for tag in product.tags %} {{ tag }}{% endfor %}">
+
+          <div class="top-image">
+
+            <a href="{{ product.url | within: collection }}">
+              <div class="lazyload" data-bgset="{% include 'responsive-bg-image', image: product.featured_image %}"></div>
+
+              <div  class="overlay">
+
+              <div class="lazyload" data-bgset="{% include 'responsive-bg-image', image: product.featured_image %}">
+
+                <h6><span>{% for collection in product.collections %}{{ collection.title }}{% endfor %}</span></h6>
+                <h4>{{ product.title }}</h4>
+
+              </div>
+              </div>
+
+
+
+            </a>
+
+          </div>
+          <div class="bottom">
+
+              {% if product.metafields.custom_fields["instructor"] != blank %}
+
+              <p class="h5 mb-3"><span>Instructed by {{ product.metafields.custom_fields["instructor"] }}</span></h5>
+
+              {% endif %}
+
+            <div class="row">
+            <div class="col-auto">
+              <a href="{{ product.url | within: collection }}"><img src="{{ 'icon-info.svg' | asset_url }}"> Course Details</a>
+            </div>
+            <div class="col-auto">
+            {%- assign current_variant = product.selected_or_first_available_variant -%}
+
+
+
+            {% form 'product', product, data-product-form: '', data-product-handle: product.handle, data-enable-history-state: 'true' %}
+              {% unless product.has_only_default_variant %}
+                {% for option in product.options_with_values %}
+                  <div class="js">
+
+                    {% if forloop.index0 > 0 %}
+
+                      {% for value in option.values %}
+                        <input type="radio" id="Option{{ option.position }}-{{ value }}" name="options[{{ option.name }}]" value="{{ value }}"{% if option.selected_value == value %} checked{% endif %}>
+                        <label for="Option{{ option.position }}-{{ value }}">{{ value }}</label>
+                      {% endfor %}
+
+                    {% else %}
+
+                      <label for="Option{{ option.position }}">
+                        {{ option.name }}
+                      </label>
+
+                      <select
+                        id="Option{{ option.position }}"
+                        name="options[{{ option.name | escape }}]">
+                        {% for value in option.values %}
+                          <option
+                            value="{{ value | escape }}"
+                            {% if option.selected_value == value %}selected="selected"{% endif %}>
+                              {{ value }}
+                          </option>
+                        {% endfor %}
+                      </select>
+
+                    {% endif %}
+                  </div>
+                {% endfor %}
+              {% endunless %}
+
+                <select name="id" hidden>
+                  {% for variant in product.variants %}
+                    <option
+                      {% if variant == current_variant %}selected="selected"{% endif %}
+                      {% unless variant.available %}disabled="disabled"{% endunless %}
+                      value="{{ variant.id }}">
+                        {{ variant.title }}
+                    </option>
+                  {% endfor %}
+                </select>
+
+              <label for="Quantity" hidden>{{ 'products.product.quantity' | t }}</label>
+              <input type="number" id="Quantity" name="quantity" value="1" min="1" hidden>
+
+
+
+              <button
+                type="submit"
+                name="add"
+                class=""
+                data-submit-button
+                {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+                <img class="" src="{{ 'icon-plus.svg' | asset_url }}">
+                  <span data-submit-button-text>
+                    {% if current_variant.available %}
+                      Register for Course
+                    {% else %}
+                      Registration Closed
+                    {% endif %}
+                  </span>
+              </button>
+            {% endform %}
+
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+        </div>
+
+        </div>
+        {% endif %}
+
+
+      {% endfor %}
+
+      </div>
+    </div>
+
+  </section>
+
+  {% if paginate.pages > 1 %}
+    {% include 'pagination' %}
+  {% endif %}
+{% endpaginate %}

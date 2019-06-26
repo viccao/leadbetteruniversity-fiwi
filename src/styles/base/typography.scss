@@ -1,0 +1,142 @@
+html {
+  @include poly-fluid-sizing('font-size', (300px: 13px, 325px: 13px, 375px: 14px, 640px: 16px, 768px: 12px, 993px: 13px, 1024px: 12px, 1152px: 11px, 1440px: 14px, 1600px: 15px, 1920px: 16px, 2560px: 24px, 3360px: 20px, 3840px: 22px));
+  font-family: 'Avenir';
+  font-weight: normal;
+
+  body {
+    font-size: 1rem;
+    font-family: 'Avenir';
+    color: var(--text);
+  }
+
+  * {}
+
+  p {
+    line-height: 1.75;
+    margin-bottom: 2rem;
+     color: var(--text);
+
+    &.secondary {
+      color: var(--brand-secondary);
+    }
+
+    &.brand {
+      color: var(--brand-primary);
+    }
+  }
+
+  p,
+  li {
+    font-size: 1rem;
+
+    a {
+      color: var(--brand-primary);
+      transition: .3s ease;
+
+      &:hover {
+        color: var(--brand-secondary);
+        text-decoration: none;
+      }
+    }
+  }
+
+  a {
+    color: var(--brand-primary);
+    transition: .3s ease;
+
+    &:hover {
+      color: var(--brand-secondary);
+      text-decoration: none;
+    }
+  }
+
+  --title-spacing: .45em;
+
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3,
+  h4,
+  .h4,
+  h5,
+  .h5,
+  h6,
+  .h6 {
+    letter-spacing: var(--title-spacing);
+    position: relative;
+    left: -.1em;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    line-height: 2;
+
+    // @media (max-width: 1280px)
+    @include media-breakpoint-down(sm) {
+      line-height: 1.5;
+      font-size: 1.5rem;
+    }
+
+    span {
+      font-family: 'Heroic Condensed';
+      letter-spacing: 0;
+      font-weight: normal;
+      line-height: 1;
+    }
+
+    &.no-spacing {
+      letter-spacing: 0;
+    }
+
+    &.secondary {
+      color: var(--brand-secondary);
+    }
+
+    &.no-caps {
+      text-transform: none;
+    }
+
+    &.brand {
+      color: var(--brand-primary);
+    }
+
+    &.title {
+      font-family: 'Avenir';
+      letter-spacing: var(--title-spacing);
+      position: relative;
+      left: -.1em;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    &.condensed {
+      font-family: 'Heroic Condensed';
+      letter-spacing: 0;
+      font-weight: normal;
+      text-transform: uppercase;
+      line-height: 1.25;
+    }
+  }
+}
+
+.title {
+  font-family: 'Avenir';
+  letter-spacing: var(--title-spacing);
+  position: relative;
+  left: -.1em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.condensed {
+  font-family: 'Heroic Condensed';
+  letter-spacing: 0;
+  font-weight: normal;
+  text-transform: uppercase;
+  line-height: 1.25;
+}
+
+.transition {
+  transition: .3s ease;
+}

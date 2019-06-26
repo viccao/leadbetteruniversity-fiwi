@@ -1,0 +1,70 @@
+{%- comment -%}
+  This is a required section for the Shopify Theme Store.
+  It is available when you add the "Image with text" section in the theme editor.
+
+  Theme Store required settings
+  - Image
+  - Heading: David Letter
+  - Text: description of the block
+
+  Theme Store optional settings
+  - Button label: label associated with the button
+  - Button link: link of the button
+{%- endcomment -%}
+
+<section class="david-letter d-lg-block d-none">
+  {%- if section.settings.bg != blank -%}
+  <div class="lazyload bg" data-bgset="{% include 'responsive-bg-image', image: section.settings.bg %}"></div>
+
+{%- endif -%}
+  <div class="container">
+     <div class="row">
+        <div class="col-lg-6 ml-auto">
+          {%- if section.settings.letter != blank -%}
+          {{ section.settings.letter }}
+          {%- endif -%}
+
+          <div class="row">
+          <div class="col-sm-4">
+            <img src="{{ 'signature.png' | asset_url }}" class="img-fluid">
+          </div>
+          </div>
+
+
+
+        </div>
+     </div>
+  </div>
+
+</section>
+
+{% schema %}
+  {
+    "name": "David Letter",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "David Letter"
+      },
+      {
+        "type": "richtext",
+        "id": "letter",
+        "label": "Letter",
+        "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+      },
+      {
+        "type": "image_picker",
+        "id": "bg",
+        "label": "Background Image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "David Letter",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}

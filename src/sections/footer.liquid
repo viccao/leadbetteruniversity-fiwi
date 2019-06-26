@@ -1,0 +1,139 @@
+
+<div class="dale-margin">
+
+  <section class="pre-footer">
+    <div class="">
+    <div class="row align-items-center">
+      <div class="col-sm-12">
+
+        <ul class="nav">
+          {% for link in linklists.secondary-footer.links %}
+              <li title="Link to {{ link.title }}">
+                <a href="{{ link.url }}" title="Link to {{ link.title }}">{{ link.title }}</a>
+
+                  {% if link.links != blank %}
+                        <ul class="dropdown">
+                          {% for child_link in link.links %}
+                                <li title="Link to {{ child_link.title }}">
+                                  <a href="{{ child_link.url }}" title="Link to {{ child_link.title }}">{{ child_link.title }}</a>
+
+                          </li>
+                          {% endfor %}
+                </ul>
+                {% endif %}
+              </li>
+          {% endfor %}
+        </ul>
+
+
+      </div>
+    </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+
+    <div class="row">
+      <div class="col-lg-2 col-sm-3 col-5 order-lg-1 order-2 mb-5">
+       {% include 'icon-logo' %}
+      </div>
+    <div class="col-lg ml-auto order-lg-2 order-1">
+    {%- assign footer_linklist = section.settings.footer_linklist -%}
+    {% if linklists[footer_linklist].links.size > 0 %}
+      <ul class="nav">
+        {% for link in linklists[footer_linklist].links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+      <ul class="nav d-lg-none d-block">
+        {% for link in linklists.secondary-footer.links %}
+            <li title="Link to {{ link.title }}">
+              <a href="{{ link.url }}" title="Link to {{ link.title }}">{{ link.title }}</a>
+
+                {% if link.links != blank %}
+                      <ul class="dropdown">
+                        {% for child_link in link.links %}
+                              <li title="Link to {{ child_link.title }}">
+                                <a href="{{ child_link.url }}" title="Link to {{ child_link.title }}">{{ child_link.title }}</a>
+
+                        </li>
+                        {% endfor %}
+              </ul>
+              {% endif %}
+            </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    </div>
+
+    <div class="row">
+    <div class="col-lg-auto order-lg-1 order-2 mt-lg-0 mt-4">
+      <small>&copy; {{ 'now' | date: "%Y" }} The Leadbetter Golf Academy. All Rights Reserved.</small>
+    </div>
+    <div class="col-auto ml-lg-auto order-lg-2 order-1">
+
+    {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
+    <ul class="social">
+      {% for social in social_accounts %}
+        {%- assign social_handle = social | handleize -%}
+        {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+        {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
+
+        {% if settings[social_link] != blank %}
+          <li>
+            <a href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+              {% include social_icon %}
+              <span class="icon-fallback-text">{{ social }}</span>
+            </a>
+          </li>
+        {% endif %}
+
+      {% endfor %}
+    </ul>
+
+    </div>
+    </div>
+
+
+
+    {% if section.settings.show_payment_icons %}
+      {% unless shop.enabled_payment_types == empty %}
+        <span class="visually-hidden">{{ 'layout.footer.payment_methods' | t }}</span>
+        <ul class="payment-icons">
+          {% for type in shop.enabled_payment_types %}
+            <li>
+              {{ type | payment_type_svg_tag: class: 'icon' }}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endunless %}
+    {% endif %}
+
+  </footer>
+
+</div>
+
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "footer_linklist",
+        "label": "First menu",
+        "default": "footer"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_payment_icons",
+        "label": "Show payment icons",
+        "default": false
+      }
+    ]
+  }
+
+{% endschema %}

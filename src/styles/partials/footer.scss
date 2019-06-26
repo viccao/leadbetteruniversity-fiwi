@@ -1,0 +1,249 @@
+.pre-footer {
+  padding: 3rem 3rem;
+
+  // (768px)
+  @include media-breakpoint-down(md) {
+    //    padding-bottom: 3rem;
+    display: none;
+  }
+
+  .nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    // (640px)
+    @include media-breakpoint-up(lg) {
+      display: flex;
+    }
+
+    // @media (max-width: 1280px)
+    @include media-breakpoint-down(lg) {
+      margin-bottom: 0;
+    }
+
+    li {
+      margin: 0;
+      flex: 1 1 50%;
+
+      @include media-breakpoint-up(lg) {
+        flex: 1 1 calc(100% / 3);
+        max-width: calc(calc(100% - 2.5rem) / 3);
+      }
+
+      > a {
+        pointer-events: none;
+      }
+
+      // @media (max-width: 1280px)
+      @include media-breakpoint-down(lg) {
+        &:not(:last-child) {
+          ul {
+            margin-bottom: 2rem;
+          }
+        }
+      }
+
+      a {
+        @extend .condensed;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        display: block;
+
+        &:hover {
+          color: var(--brand-secondary)
+        }
+      }
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        @include media-breakpoint-up(md) {
+          //          display: flex;
+          //          flex-wrap: wrap;
+          //          flex-direction: column;
+          //          max-height: 50%;
+          column-count: 2;
+        }
+
+        li {
+          line-height: 1;
+          display: block;
+          max-width: 100%;
+
+          //          flex: 1 1 50%;
+          a {
+            @extend .title;
+            color: var(--dark-on-white);
+            font-size: .85rem;
+            letter-spacing: .25em;
+            display: block;
+            line-height: 1.75;
+            pointer-events: all;
+            //            // @media (max-width: 1280px)
+            //            @include media-breakpoint-down(xl) {
+            //              font-size: .85rem;
+            //            }
+            //
+            //            // @media (max-width: 1280px)
+            //            @include media-breakpoint-down(lg) {
+            //              font-size: .85rem;
+            //            }
+          }
+        }
+      }
+
+      &[title="Link to Visit Us"] {
+        ul {
+          column-count: 1;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  background: var(--dark);
+  padding: 3rem 3rem 2rem;
+
+  // (768px)
+  @include media-breakpoint-down(md) {
+    padding: 3rem 2rem 2rem;
+  }
+
+  svg {
+    width: 100%;
+    height: auto;
+
+    #wordmark {
+      fill: white;
+    }
+
+    #mark {
+      fill: white;
+      //        display: none;
+    }
+
+    #lines g rect {
+      fill: white;
+      display: none;
+    }
+  }
+
+  * {
+    color: white;
+  }
+
+  p {
+    font-weight: bold;
+    letter-spacing: 0;
+    margin: 0;
+    line-height: 1.25;
+  }
+
+  small {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .25em;
+    margin: 0;
+    font-size: .65rem;
+    line-height: 1.35;
+    display: block;
+  }
+
+  .nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+
+    @include media-breakpoint-up(md) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    @include media-breakpoint-down(md) {
+      column-count: 2;
+    }
+
+    margin-bottom: 3rem;
+
+    li {
+      @include media-breakpoint-up(lg) {
+        flex: 1 1 50%;
+        max-width: 37.5%;
+      }
+
+      // (768px)
+      @include media-breakpoint-down(md) {
+        vertical-align: top;
+        margin: 0 0 1rem;
+
+        > a {
+          display: none;
+        }
+      }
+
+      margin: .5rem 0;
+      line-height: 1.5;
+
+      a {
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        line-height: 1;
+        letter-spacing: .25em;
+        font-size: .85rem;
+      }
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        // (768px)
+        @include media-breakpoint-down(md) {
+          li {
+            display: block;
+            vertical-align: top;
+
+            //            width: 50%;
+            a {
+              display: block;
+              line-height: 1.5;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .social {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+    li {
+      flex: 1;
+
+      a {
+        color: white;
+        padding: 0 .5rem;
+        display: block;
+
+        svg {
+          path {
+            fill: white;
+          }
+        }
+
+        span {
+          @extend .sr-only;
+        }
+      }
+    }
+  }
+}

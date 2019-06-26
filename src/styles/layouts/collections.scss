@@ -1,0 +1,51 @@
+.template-collection {
+  header {
+    .bar {
+      background: var(--brand-primary);
+      padding: 4.1rem 0;
+      position: relative;
+
+      // (768px)
+      @include media-breakpoint-down(md) {
+        padding: 1rem 0;
+      }
+
+      .bg {
+        position: absolute;
+        top: 0;
+        right: -4rem;
+        height: 101%;
+        transform: skewX(-20deg);
+        border-left: 1.5rem solid var(--light);
+        overflow: hidden;
+        width: var(--banner-width);
+        --large: 50% 50%;
+
+        // @media (max-width: 1280px)
+        @include media-breakpoint-down(md) {
+          display: none;
+        }
+
+
+
+        img,
+        .plyr {
+          height: 100%;
+          width: calc(100% + 4rem);
+          left: -10%;
+          object-fit: cover;
+          object-position: var(--large);
+          transform: skewX(20deg);
+          position: absolute;
+        }
+      }
+
+      h1 {
+        color: var(--light);
+        font-weight: bold;
+        text-transform: uppercase;
+        margin: 0
+      }
+    }
+  }
+}

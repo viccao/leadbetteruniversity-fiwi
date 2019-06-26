@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="19px" viewBox="0 0 19 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-plus</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.25">
+        <g id="All-View---Single-Course---Red" transform="translate(-173.000000, -311.000000)" fill="#4A4A4A" fill-rule="nonzero">
+            <g id="Cat-View---Single-Course---Red">
+                <g id="Group-14">
+                    <g id="Group-13-Copy">
+                        <g id="Group-6" transform="translate(19.000000, 310.000000)">
+                            <g id="ic-baseline-add-circle-outline" transform="translate(154.024141, 1.000000)">
+                                <g id="icon-plus">
+                                    <path d="M10.2280317,4.72619332 L8.36838955,4.72619332 L8.36838955,8.50714797 L4.64910531,8.50714797 L4.64910531,10.3976253 L8.36838955,10.3976253 L8.36838955,14.17858 L10.2280317,14.17858 L10.2280317,10.3976253 L13.9473159,10.3976253 L13.9473159,8.50714797 L10.2280317,8.50714797 L10.2280317,4.72619332 Z M9.29821061,0 C4.16559835,0 0,4.23466921 0,9.45238663 C0,14.6701041 4.16559835,18.9047733 9.29821061,18.9047733 C14.4308229,18.9047733 18.5964212,14.6701041 18.5964212,9.45238663 C18.5964212,4.23466921 14.4308229,0 9.29821061,0 Z M9.29821061,17.0142959 C5.19769973,17.0142959 1.85964212,13.6208891 1.85964212,9.45238663 C1.85964212,5.28388413 5.19769973,1.89047733 9.29821061,1.89047733 C13.3987215,1.89047733 16.7367791,5.28388413 16.7367791,9.45238663 C16.7367791,13.6208891 13.3987215,17.0142959 9.29821061,17.0142959 Z"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

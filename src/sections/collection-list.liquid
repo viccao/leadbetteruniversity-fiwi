@@ -1,0 +1,143 @@
+{%- comment -%}
+  This is a required section for the Shopify Theme Store.
+  It is available when you add "Collection list" section in the Theme Editor.
+
+  Theme Store required settings
+  - Heading: title of the collection list section
+  - Collection
+{%- endcomment -%}
+
+<section class="collections-grid dale-margin">
+  <div class="row">
+
+  {% for block in section.blocks %}
+
+
+
+    {%- assign collection = collections[block.settings.collection] -%}
+      <div class="col-lg-3 single-collection">
+
+        <a href="{{ collection.url | default: "#" }}" class="collection-list-item" {{ block.shopify_attributes }}>
+          {% if collection.image != blank or collection.products.first != blank %}
+            {%- assign image_object = collection.image | default: collection.products.first.featured_image -%}
+          {% endif %}
+          <div class="card {{ collection.handle }}">
+
+            <div class="top-image larger">
+              <div class="over">
+                <h6><span>{{ collection.title }}</span></h6>
+              </div>
+              <div class="view-link over">
+                <h6><span>View {{ collection.title }} Courses</span></h6>
+              </div>
+
+                <div class="lazyload img" data-bgset="{% include 'responsive-bg-image', image: image_object %}" style="{% if collection.metafields.custom_fields["small_positioning"] != blank %} --small: {{ collection.metafields.custom_fields["small_positioning"] }};{% endif %}{% if collection.metafields.custom_fields["large_positioning"] != blank %} --large: {{ collection.metafields.custom_fields["large_positioning"] }};{% endif %}"></div>
+
+                <div class="overlay">
+
+                <div class="lazyload" data-bgset="{% include 'responsive-bg-image', image: image_object %}" style="{% if collection.metafields.custom_fields["small_positioning"] != blank %} --small: {{ collection.metafields.custom_fields["small_positioning"] }};{% endif %}{% if collection.metafields.custom_fields["large_positioning"] != blank %} --large: {{ collection.metafields.custom_fields["large_positioning"] }};{% endif %}"></div>
+
+                </div>
+
+
+
+
+            </div>
+            </div>
+
+
+        </a>
+      </div>
+  {% endfor %}
+
+  {% if section.blocks.size == 0 %}
+    {% include 'no-blocks' %}
+  {% endif %}
+
+      </div>
+
+  <div class="container pt-5 pb-lg-5 pb-3 d-lg-block d-none">
+     <div class="row align-items-end">
+        <div class="col-lg-8">
+          {%- if section.settings.title != blank -%}
+          <h2>{{ section.settings.headline | escape }}</h2>
+          {%- endif -%}
+
+          <div class="row">
+          <div class="col-lg-10">
+
+          {%- if section.settings.content != blank -%}
+          {{ section.settings.content }}
+          {%- endif -%}
+
+          </div>
+          </div>
+
+
+
+        </div>
+        <div class="col-lg-4">
+          <a href="/collections/all" class="btn btn-primary mb-lg-5">View All Courses</a>
+        </div>
+     </div>
+  </div>
+
+</section>
+
+{% schema %}
+  {
+    "name": "Collection list",
+    "max_blocks": 12,
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Collection list"
+      },
+      {
+        "type": "text",
+        "id": "headline",
+        "label": "Headline"
+      },
+      {
+        "type": "richtext",
+        "id": "content",
+        "label": "Section Content"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "collection",
+        "name": "Collection",
+        "settings": [
+          {
+            "label": "Collection",
+            "id": "collection",
+            "type": "collection"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Collection list",
+        "category": "Collection",
+        "blocks": [
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

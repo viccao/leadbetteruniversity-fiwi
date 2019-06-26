@@ -1,0 +1,39 @@
+<style>
+  {{ settings.font_heading | font_face }}
+  {{ settings.font_body | font_face }}
+
+  {%- assign font_body_bold = settings.font_body | font_modify: 'weight', 'bolder' -%}
+  {%- assign font_body_bold_italic = font_body_bold | font_modify: 'style', 'italic' -%}
+
+  {{ font_body_bold | font_face }}
+  {{ font_body_bold_italic | font_face }}
+
+  :root {
+    --color-accent: {{ settings.color_accent }};
+    --color-body-text: {{ settings.color_body_text }};
+    --color-main-background: {{ settings.color_main_bg }};
+    --color-border: {{ settings.color_body_text | color_lighten: 50 }};
+    --font-heading: {{ settings.font_heading.family }}, {{ settings.font_heading.fallback_families }};
+    --font-body: {{ settings.font_body.family }}, {{ settings.font_body.fallback_families }};
+    --font-body-weight: {{ settings.font_body.weight }};
+    --font-body-style: {{ settings.font_body.style }};
+    --font-body-bold-weight: {{ font_bYody_bold.weight | default: 'bold' }};
+    --brand-primary: #E01931;
+    --category-physical: #FF3347;
+    --brand-secondary: #AE2534;
+    --category-physical-alt: #E01931;
+    --category-mental: #9013FE;
+    --category-mental-alt: #3E0074;
+    --category-juniors: #4A90E2;
+    --category-juniors-alt: #003D7D;
+    --category-technical: #F5A623;
+    --category-technical-alt: #F76B1C;
+    --spacing: .45em;
+    --page: {{ page_title | handle }};
+    --brand-primary: var(--category-physical);
+    --brand-secondary: var(--category-physical-alt);
+    --large: 50% 50%;
+    --small: 50% 50%;
+    --v-padding: 1rem;
+  }
+</style>

@@ -1,0 +1,472 @@
+<section data-section-id="{{ section.id }}" data-section-type="product" class="main">
+
+    <div class="front">
+      <div class="bg">
+        {% if product.metafields.custom_fields["video_preview"] != blank %}
+        <div id="player" poster="{% if product.featured_image != blank %}{{ product | img_url: '1600x' }}{% endif %}" data-plyr-provider="youtube" data-plyr-embed-id="{{ product.metafields.custom_fields["video_preview"] }}" data-plyr-config='{ noCookie: false, rel: 0, showinfo: 0, iv_load_policy: 3, modestbranding: 1, controls: 0 }'></div>
+        <script>
+
+
+            const player = new Plyr('#player');
+        </script>
+        {% else %}
+        <img src="{% if product.featured_image != blank %}{{ product | img_url: '1600x' }}{% else %}https://via.placeholder.com/800x500{% endif %}">
+        {% endif %}
+      </div>
+    </div>
+
+    <header role="banner" class="dale-margin">
+
+
+
+
+      <div class="bar">
+
+        <div class="container">
+
+          <div class="row">
+          <div class="col-lg-6">
+             <h1>{{ product.title }}</h1>
+          </div>
+          </div>
+
+
+
+
+        </div>
+      </div>
+
+
+
+    </header>
+
+  {%- assign current_variant = product.selected_or_first_available_variant -%}
+  {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+
+  <article>
+  {% if product.metafields.custom_fields["instructor"] != blank %}
+  <section class="dale-margin">
+  <div class="instructor-bar d-lg-none d-block">
+    <div class="container">
+        <h2 class="condensed">Instructed by {{ product.metafields.custom_fields["instructor"] }}</h2>
+
+    </div>
+  </div>
+</section>
+
+  {% endif %}
+    <div class="container">
+       <div class="row mt-4">
+          <div class="col-xl-7">
+
+
+            <div class="row">
+            <div class="col-lg-6 active order-md-1 order-2">
+            <div class="rte">
+              {% if product.metafields.custom_fields["course_intro"] != blank %}
+
+              <p>{{ product.metafields.custom_fields["course_intro"] }}</p>
+
+              {% else %}
+
+              {{ product.description }}
+
+              {% endif %}
+
+            </div>
+            </div>
+            <div class="col-lg-6 order-md-2 order-1 mb-md-0 mb-2">
+
+            <div data-price-wrapper>
+            <span data-product-price class="h1 price">{{ current_variant.price | money }}</span>
+
+            {% if product.compare_at_price_max > product.price %}
+            <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
+            <s data-compare-price>
+            {% if current_variant.compare_at_price > current_variant.price %}
+            {{ current_variant.compare_at_price | money }}
+            {% endif %}
+            </s>
+            {% endif %}
+
+            <h6 class="no-spacing secondary uppercase">{{ product.type }}</h6>
+
+
+            </div>
+
+            </div>
+            </div>
+            <div class="row align-items-center">
+            <div class="col-lg-6 active">
+
+            {% form 'product', product, data-product-form: '', data-product-handle: product.handle, data-enable-history-state: 'true' %}
+              {% unless product.has_only_default_variant %}
+                {% for option in product.options_with_values %}
+                  <div class="js">
+
+                    {% if forloop.index0 > 0 %}
+
+                      {% for value in option.values %}
+                        <input type="radio" id="Option{{ option.position }}-{{ value }}" name="options[{{ option.name }}]" value="{{ value }}"{% if option.selected_value == value %} checked{% endif %}>
+                        <label for="Option{{ option.position }}-{{ value }}">{{ value }}</label>
+                      {% endfor %}
+
+                    {% else %}
+
+                      <label for="Option{{ option.position }}">
+                        {{ option.name }}
+                      </label>
+
+                      <select
+                        id="Option{{ option.position }}"
+                        name="options[{{ option.name | escape }}]">
+                        {% for value in option.values %}
+                          <option
+                            value="{{ value | escape }}"
+                            {% if option.selected_value == value %}selected="selected"{% endif %}>
+                              {{ value }}
+                          </option>
+                        {% endfor %}
+                      </select>
+
+                    {% endif %}
+                  </div>
+                {% endfor %}
+              {% endunless %}
+
+                <select name="id" hidden>
+                  {% for variant in product.variants %}
+                    <option
+                      {% if variant == current_variant %}selected="selected"{% endif %}
+                      {% unless variant.available %}disabled="disabled"{% endunless %}
+                      value="{{ variant.id }}">
+                        {{ variant.title }}
+                    </option>
+                  {% endfor %}
+                </select>
+
+              <label for="Quantity" hidden>{{ 'products.product.quantity' | t }}</label>
+              <input type="number" id="Quantity" name="quantity" value="1" min="1" hidden>
+
+
+
+              <button
+                type="submit"
+                name="add"
+                class="btn btn-primary btn-filled mt-lg-3 mt-2 mb-4"
+                data-submit-button
+                {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+                  <span data-submit-button-text>
+                    {% if current_variant.available %}
+                      Register for Course
+                    {% else %}
+                      Registration Closed
+                    {% endif %}
+                  </span>
+              </button>
+            {% endform %}
+
+            </div>
+            <div class="col-lg-6">
+              {% if product.metafields.custom_fields["instructor"] != blank %}
+              <div class="instructor d-sm-block d-none">
+                <div class="behind">
+                  <div>
+                    <h5>{{ product.metafields.custom_fields["instructor"] }}</h5>
+                    <h6><span>Instructor</span></h6>
+                  </div>
+
+                </div>
+                {% if product.metafields.custom_fields["instructor_headshot"] != blank %}
+                <div class="headshot">
+
+                        {{ product.metafields.custom_fields["instructor_headshot"] }}
+
+                </div>
+                {% endif %}
+
+
+
+              </div>
+
+
+              {% endif %}
+            </div>
+            </div>
+
+
+
+          </div>
+
+       </div>
+    </div>
+
+
+
+
+    <div class="container mt-lg-5">
+       <div class="row">
+          <div class="col-lg-4">
+            {% if section.settings.show_share_buttons %}
+            {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
+          {% endif %}
+          </div>
+       </div>
+    </div>
+  </article>
+
+
+
+</section>
+{% if product.metafields.custom_fields["course_intro"] != blank %}
+{% if product.description != blank %}
+  <section class="detail">
+    <div class="container">
+       <div class="row">
+          <div class="col-sm-12">
+
+            <h2>Course Objectives</h2>
+
+            <div class="col-wrapper align-items-start">
+            {{ product.description }}
+
+            </div>
+
+
+          </div>
+       </div>
+    </div>
+
+  </section>
+
+{% endif %}
+{% endif %}
+
+{% if product.metafields.custom_fields["course_testimonials"] != blank %}
+
+  <section class="testimonials">
+    <div class="container">
+       <div class="row">
+          <div class="col-sm-12">
+            <h2>What others are saying</h2>
+         </div>
+      </div>
+
+      {% assign separator = "|###|" %}
+      {% assign testimonial_array = product.metafields.custom_fields["testimonial"] | split: separator %}
+      {% assign author_title_array = product.metafields.custom_fields["author_title"] | split: separator %}
+
+      {% assign testimonial_headshot_array = product.metafields.custom_fields["testimonial_headshot"] | split: separator %}
+      {% assign testimonial_author_array = product.metafields.custom_fields["testimonial_author"] | split: separator %}
+      {% assign testimonial_video_array = product.metafields.custom_fields["testimonial_video"] | split: separator %}
+      {% assign fc_keys = product.metafields.custom_fields["course_testimonials"] | split: "," %}
+      {% for i in fc_keys %}
+      {% assign index = i | plus: 0 %}
+
+
+
+       <div class="row">
+          <div class="col-lg-6">
+
+
+              <p class="lead mt-lg-5 mb-lg-5">{{ testimonial_array[index] }}</p>
+
+              <div class="instructor mt-3 ml-sm-auto">
+                <div class="behind">
+                  <div>
+                    <h5>{{ testimonial_author_array[index] }}</h5>
+                    <h6><span>{{ author_title_array[index] }}</span></h6>
+                  </div>
+
+                </div>
+
+                <div class="headshot">
+                      {{ testimonial_headshot_array[index] }}
+                </div>
+              </div>
+
+          </div>
+          <div class="col-lg-5 ml-auto mt-lg-5">
+
+            <div class="" id="player-{{ index }}" data-plyr-provider="youtube" data-plyr-embed-id="{{ testimonial_video_array[index] }}"></div>
+
+            <script>
+                const player{{ index }} = new Plyr('#player-{{ index }}');
+            </script>
+
+
+
+          </div>
+       </div>
+
+          {% endfor %}
+    </div>
+
+  </section>
+
+{% endif %}
+
+
+
+<section class="related">
+    <div class="container">
+      {% if collection.products %}
+      <h2>Related Courses</h2>
+
+      <div class="row">
+
+     {% assign current = page_title | handle %}
+
+      {% for product in collection.products %}
+
+        {% if product.handle != current %}
+
+      <div class="col-lg-4 col-sm-6" id="{{ product.handle }}">
+
+        <div class="card">
+
+          <div class="top-image">
+
+            <a href="{{ product.url | within: collection }}">
+              <div class="lazyload" data-bgset="{% include 'responsive-bg-image', image: product.featured_image %}"></div>
+
+              <div  class="overlay">
+
+              <div class="lazyload" data-bgset="{% include 'responsive-bg-image', image: product.featured_image %}">
+
+                <h6><span>{% for collection in product.collections %}{{ collection.title }}{% endfor %}</span></h6>
+                <h4>{{ product.title }}</h4>
+
+              </div>
+              </div>
+
+
+
+            </a>
+
+          </div>
+          <div class="bottom">
+
+              {% if product.metafields.custom_fields["instructor"] != blank %}
+
+              <p class="h5 mb-3"><span>Instructed by {{ product.metafields.custom_fields["instructor"] }}</span></h5>
+
+              {% endif %}
+
+            <div class="row">
+            <div class="col-auto">
+              <a href="{{ product.url | within: collection }}"><img src="{{ 'icon-info.svg' | asset_url }}"> Course Details</a>
+            </div>
+            <div class="col-auto">
+
+            {%- assign current_variant = product.selected_or_first_available_variant -%}
+
+
+
+            {% form 'product', product, data-product-form: '', data-product-handle: product.handle, data-enable-history-state: 'true' %}
+              {% unless product.has_only_default_variant %}
+                {% for option in product.options_with_values %}
+                  <div class="js">
+
+                    {% if forloop.index0 > 0 %}
+
+                      {% for value in option.values %}
+                        <input type="radio" id="Option{{ option.position }}-{{ value }}" name="options[{{ option.name }}]" value="{{ value }}"{% if option.selected_value == value %} checked{% endif %}>
+                        <label for="Option{{ option.position }}-{{ value }}">{{ value }}</label>
+                      {% endfor %}
+
+                    {% else %}
+
+                      <label for="Option{{ option.position }}">
+                        {{ option.name }}
+                      </label>
+
+                      <select
+                        id="Option{{ option.position }}"
+                        name="options[{{ option.name | escape }}]">
+                        {% for value in option.values %}
+                          <option
+                            value="{{ value | escape }}"
+                            {% if option.selected_value == value %}selected="selected"{% endif %}>
+                              {{ value }}
+                          </option>
+                        {% endfor %}
+                      </select>
+
+                    {% endif %}
+                  </div>
+                {% endfor %}
+              {% endunless %}
+
+                <select name="id" hidden>
+                  {% for variant in product.variants %}
+                    <option
+                      {% if variant == current_variant %}selected="selected"{% endif %}
+                      {% unless variant.available %}disabled="disabled"{% endunless %}
+                      value="{{ variant.id }}">
+                        {{ variant.title }}
+                    </option>
+                  {% endfor %}
+                </select>
+
+              <label for="Quantity" hidden>{{ 'products.product.quantity' | t }}</label>
+              <input type="number" id="Quantity" name="quantity" value="1" min="1" hidden>
+
+
+
+              <button
+                type="submit"
+                name="add"
+                class=""
+                data-submit-button
+                {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+                <img class="" src="{{ 'icon-plus.svg' | asset_url }}">
+                  <span data-submit-button-text>
+                    {% if current_variant.available %}
+                      Register for Course
+                    {% else %}
+                      Registration Closed
+                    {% endif %}
+                  </span>
+              </button>
+            {% endform %}
+
+
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+        </div>
+
+        </div>
+        {% endif %}
+
+
+      {% endfor %}
+
+      </div>
+    {% endif %}
+    </div>
+
+</section>
+
+
+
+{% schema %}
+  {
+    "name": "Product pages",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_share_buttons",
+        "label": "Show social sharing buttons",
+        "default": true
+      }
+    ]
+  }
+{% endschema %}
