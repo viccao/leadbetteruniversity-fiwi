@@ -59,6 +59,9 @@
             <a href="{{ product.url | within: collection }}">
               <div class="lazyload" data-bgset="{% include 'responsive-bg-image', image: product.featured_image %}"></div>
 
+              <div class="overlay dupe"><div>
+              <h4>{{ product.title }}</h4></div>
+              </div>
               <div  class="overlay">
 
               <div class="lazyload" data-bgset="{% include 'responsive-bg-image', image: product.featured_image %}">

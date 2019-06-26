@@ -97,7 +97,7 @@
             </div>
             </div>
             <div class="row align-items-center">
-            <div class="col-lg-6 active">
+            <div class="col-lg-auto active">
 
             {% form 'product', product, data-product-form: '', data-product-handle: product.handle, data-enable-history-state: 'true' %}
               {% unless product.has_only_default_variant %}
@@ -167,7 +167,7 @@
             {% endform %}
 
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg">
               {% if product.metafields.custom_fields["instructor"] != blank %}
               <div class="instructor d-sm-block d-none">
                 <div class="behind">
@@ -329,7 +329,9 @@
 
             <a href="{{ product.url | within: collection }}">
               <div class="lazyload" data-bgset="{% include 'responsive-bg-image', image: product.featured_image %}"></div>
-
+              <div class="overlay dupe"><div>
+              <h4>{{ product.title }}</h4></div>
+              </div>
               <div  class="overlay">
 
               <div class="lazyload" data-bgset="{% include 'responsive-bg-image', image: product.featured_image %}">

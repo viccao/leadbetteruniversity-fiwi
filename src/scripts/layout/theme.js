@@ -22,7 +22,7 @@ window.jQuery = $;
 window.$ = $;
 
 
-$(document).ready(function(){
+$(document).ready(function() {
 
   onUpdate();
 })
@@ -41,6 +41,47 @@ function onUpdate() {
     document.head.append(lightSchemeIcon);
     darkSchemeIcon.remove();
   }
+}
+
+
+function wrapText(text, maxChars) {
+  var ret = [];
+  var words = text.split(/\b/);
+
+  var currentLine = '';
+  var lastWhite = '';
+  words.forEach(function(d) {
+    var prev = currentLine;
+    currentLine += lastWhite + d;
+
+    var l = currentLine.length;
+
+    if (l > maxChars) {
+      ret.push(prev.trim());
+      currentLine = d;
+      lastWhite = '';
+    } else {
+      var m = currentLine.match(/(.*)(\s+)$/);
+      lastWhite = (m && m.length === 3 && m[2]) || '';
+      currentLine = (m && m.length === 3 && m[1]) || currentLine;
+    }
+  });
+
+  if (currentLine) {
+    ret.push(currentLine.trim());
+  }
+
+  return ret.join("\n");
+}
+
+if ($('.related').length) {
+  $('.related .card .top-image .overlay div h4').each(function() {
+
+    var text = $(this).text();
+
+    $(this).html(wrapText(text, 13));
+
+  });
 }
 
 // Apply a specific class to the html element for browser support of cookies.
