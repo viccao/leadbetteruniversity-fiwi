@@ -21,6 +21,9 @@ section[data-section-id="header"] {
 
   // @media (max-width: 1280px)
   @include media-breakpoint-down(md) {
+    @media (orientation: landscape) {
+      position: absolute;
+    }
 
     // (640px)
     @include media-breakpoint-up(md) {
@@ -49,7 +52,7 @@ section[data-section-id="header"] {
   }
 
   .nav-toggle {
-    height: 4rem;
+    height: 100%;
     width: 2.5rem;
     display: block;
     position: relative;
@@ -190,6 +193,10 @@ section[data-section-id="header"] {
           &:hover {
             color: var(--brand-primary);
           }
+
+          //          +ul {
+          //          pointer-events: none;
+          //          }
         }
 
         &:hover {
@@ -240,7 +247,7 @@ section[data-section-id="header"] {
 .account-nav {
   position: relative;
   z-index: 0;
-  --v-padding: 1.25rem 0 1rem;
+  --v-padding: 1rem 0 1rem;
 
   // (768px)
   @include media-breakpoint-down(md) {
@@ -354,7 +361,7 @@ section[data-section-id="header"] {
     right: -10.25rem;
     top: -1rem;
     width: var(--banner-width);
-    height: calc(var(--headerHeight) + 2.25rem);
+    height: calc(var(--headerHeight) + 2rem);
     transform: skewX(-20deg);
     z-index: 0;
 

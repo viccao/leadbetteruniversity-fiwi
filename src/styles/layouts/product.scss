@@ -103,7 +103,7 @@
         right: calc((var(--height) * (var(--vw) / var(--height))) * -8px);
         height: calc(100% - 6rem);
         transform: skewX(-20deg) translateZ(0);
-        border-left: 1.5rem solid var(--light);
+        border-left: 2rem solid var(--light);
       }
 
       @include media-breakpoint-down(lg) {
@@ -128,26 +128,28 @@
       transform-origin: 100% 0% 0;
 
       //      transition: transform .3s ease;
-      &.float {
-        position: fixed;
-        top: 1rem;
-        right: 1rem;
-        transform: translateZ(0);
-        height: auto;
-        border: none;
-        width: auto;
-        z-index: 99;
-        //        border: 1rem solid var(--light);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.09), 0 6px 6px rgba(0, 0, 0, 0.13);
-        height: 360px;
-        width: 640px;
-        transform: scale(.5);
-
-        .plyr {
-          transform: none;
+      @include media-breakpoint-up(md) {
+        &.float {
+          position: fixed;
+          top: calc(var(--headerHeight) + 2rem);
+          right: 1rem;
+          transform: translateZ(0);
           height: auto;
+          border: none;
           width: auto;
-          left: auto;
+          z-index: 99;
+          //        border: 1rem solid var(--light);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.09), 0 6px 6px rgba(0, 0, 0, 0.13);
+          height: 360px;
+          width: 640px;
+          transform: scale(.5);
+
+          .plyr {
+            transform: none;
+            height: auto;
+            width: auto;
+            left: auto;
+          }
         }
       }
 
@@ -450,6 +452,12 @@
 }
 
 .instructors {
+
+  // @media (max-width: 1280px)
+  @include media-breakpoint-up(lg) {
+    left: -3rem;
+  }
+
   .instructor {
     position: relative;
     max-width: 25rem;

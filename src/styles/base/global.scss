@@ -16,32 +16,32 @@ $baseFontSize: 14;
   color: var(--white-text) !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --light: #212121;
-    --dark: #000;
-    --text: #fff;
-    --dark-on-white: #fff;
-  }
-
-  html {
-    background: #212121;
-
-    body {
-      background: #212121;
-
-      * {
-        .collections-grid .single-collection .card .over h6, .collections-grid .single-collection .card .over.view-link h6, .account-nav .cat-nav li a {
-          color: white;
-        }
-
-        .account-nav .cat-nav li a {
-          opacity: 1;
-        }
-      }
-    }
-  }
-}
+//@media (prefers-color-scheme: dark) {
+//  :root {
+//    --light: #212121;
+//    --dark: #000;
+//    --text: #fff;
+//    --dark-on-white: #fff;
+//  }
+//
+//  html {
+//    background: #212121;
+//
+//    body {
+//      background: #212121;
+//
+//      * {
+//        .collections-grid .single-collection .card .over h6, .collections-grid .single-collection .card .over.view-link h6, .account-nav .cat-nav li a {
+//          color: white;
+//        }
+//
+//        .account-nav .cat-nav li a {
+//          opacity: 1;
+//        }
+//      }
+//    }
+//  }
+//}
 
 .dale-margin {
 
@@ -93,7 +93,7 @@ $condensed: 'Heroic Condensed';
 @include media-breakpoint-down(lg) {
   .container {
     max-width: 85%;
-    padding: 0 .93rem;
+    padding: 0 1rem;
   }
 
   .col,
@@ -167,7 +167,7 @@ $condensed: 'Heroic Condensed';
   .col-xl-12,
   .col-xl-auto,
   .template-product .detail .col-wrapper p {
-    padding: 0 .93rem;
+    padding: 0 1rem;
   }
 }
 

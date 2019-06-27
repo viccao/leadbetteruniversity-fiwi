@@ -1,5 +1,38 @@
 html {
-  @include poly-fluid-sizing('font-size', (300px: 13px, 325px: 13px, 375px: 14px, 640px: 16px, 768px: 12px, 993px: 13px, 1024px: 12px, 1152px: 11px, 1440px: 14px, 1600px: 15px, 1920px: 16px, 2560px: 24px, 3360px: 20px, 3840px: 22px));
+
+  //  @include poly-fluid-sizing('font-size', (300px: 13px, 325px: 13px, 375px: 14px, 640px: 16px, 768px: 12px, 993px: 13px, 1024px: 12px, 1152px: 11px, 1440px: 14px, 1600px: 15px, 1920px: 16px, 2560px: 24px, 3360px: 20px, 3840px: 22px));
+  //  @media(min-aspect-ratio: 812/375) {
+  //
+  //    // (768px)
+  //    @include media-breakpoint-down(sm) {
+  //      font-size: 1.75vw;
+  //    }
+  //  }
+  @media(min-aspect-ratio: 10/9) {
+    font-size: .9vw;
+
+
+  }
+
+  @media(max-aspect-ratio: 10/9) {
+    font-size: 1.1vw;
+  }
+
+  font-size: 1.1vw;
+
+  // (640px)
+  @include media-breakpoint-down(md) {
+    font-size: 1.45vw;
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 2.75vw;
+  }
+
+  @include media-breakpoint-down(xs) {
+    font-size: 3.5vw;
+  }
+
   font-family: 'Avenir';
   font-weight: normal;
 
@@ -14,7 +47,7 @@ html {
   p {
     line-height: 1.75;
     margin-bottom: 2rem;
-     color: var(--text);
+    color: var(--text);
 
     &.secondary {
       color: var(--brand-secondary);

@@ -24,7 +24,7 @@
           <ul>
             {% for link in linklists[section.settings.menu].links %}
               {% if link.links != blank %}
-                <li>
+                <li class="has-children">
                   <a href="{{ link.url }}">
                     {{ link.title }}
                     {% include 'icon-arrow-down' %}
@@ -49,22 +49,13 @@
             {% endfor %}
           </ul>
           </li>
-          <li id="university-nav" class="active"><a href="/collections/all">University Courses</a>
-          <ul>
-          {% for link in linklists.category-links.links %}
-              <li {% if link.title == collection.title %} class="active" {% endif %}>
-                <a href="{{ link.url }}" title="view products in {{ link.title }}">{{ link.title }}</a>
-              </li>
-          {% endfor %}
-            <li>
-              <a href="/cart">
-                {% include 'icon-cart' %}
-                {{ 'layout.cart.title' | t }}
-                ({{ cart.item_count }} {{ 'layout.cart.items_count' | t: count: cart.item_count }})
-              </a>
-            </li>
-          </ul></li>
-
+          <li>
+            <a href="/cart">
+              {% include 'icon-cart' %}
+              {{ 'layout.cart.title' | t }}
+              ({{ cart.item_count }} {{ 'layout.cart.items_count' | t: count: cart.item_count }})
+            </a>
+          </li>
         </ul>
     </div>
     </div>
