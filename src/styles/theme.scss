@@ -7,23 +7,7 @@
 // Bootstrap CSS
 @import './node_modules/bootstrap/scss/bootstrap';
 
-@import 'autoload/poly-fluid-sizing';
 @import 'autoload/font-face';
-
-/**
-  * Additional SCSS files can be imported from folders, etc.
-  */
-
-// // Sections
-// @import './sections/blog-posts';
-// @import './sections/collection-list';
-// @import './sections/featured-collection';
-// @import './sections/image-with-text';
-
-// // Templates
-// @import './templates/gift_card';
-// @import './templates/product';
-
 @import 'base/global';
 @import 'base/typography';
 @import 'base/buttons';

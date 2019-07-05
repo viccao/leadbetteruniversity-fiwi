@@ -1,7 +1,7 @@
 .collections-grid {
   margin: 3rem auto;
 
-  // @media (max-width: 1280px)
+  // @media (1199.98px)
   @include media-breakpoint-down(lg) {
     > .row {
       margin: 0;
@@ -10,7 +10,7 @@
 
   &.dale-margin {
 
-    // @media (max-width: 1280px)
+    // @media (1199.98px)
     @include media-breakpoint-up(xl) {
       padding: 0 1rem;
     }
@@ -20,13 +20,13 @@
 
   .single-collection {
 
-    // @media (max-width: 1280px)
+    // @media (991.98px)
     @include media-breakpoint-down(md) {
       margin-bottom: 1rem;
     }
 
     .card {
-      //    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.09), 0 6px 6px rgba(0, 0, 0, 0.13);
+      //    box-shadow: 0 rem(10) rem(20) rgba(0, 0, 0, 0.09), 0 rem(6) rem(6) rgba(0, 0, 0, 0.13);
       border: none;
       transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
       height: 100%;
@@ -44,6 +44,7 @@
         max-height: 66vw;
         height: 66vw;
       }
+  //(575.98px)
 
       @include media-breakpoint-down(xs) {
         min-height: 75vw;
@@ -51,7 +52,7 @@
         height: 75vw;
       }
 
-      // (768px)
+      // (991.98px)
       @include media-breakpoint-up(lg) {
         &:hover {
           .top-image {
@@ -95,7 +96,7 @@
         right: calc(50% - 1rem);
         transition: .3s ease;
 
-        // @media (max-width: 1280px)
+        // @media (1199.98px)
         @include media-breakpoint-down(lg) {
           padding: 1rem 2rem .25rem;
           left: 0;
@@ -110,7 +111,7 @@
           line-height: 1;
           margin: 0;
 
-          // @media (max-width: 1280px)
+          // @media (1199.98px)
           @include media-breakpoint-down(lg) {
             font-size: 1.75rem;
           }
@@ -118,6 +119,7 @@
           @include media-breakpoint-down(md) {
             font-size: 2rem;
           }
+  //(575.98px)
 
           @include media-breakpoint-down(xs) {
             font-size: 1.75rem;
@@ -129,7 +131,7 @@
           right: -1rem;
           transform: translateX(calc(var(--width) + 2rem)) skewX(-20deg);
 
-          // @media (max-width: 1280px)
+          // @media (991.98px)
           @include media-breakpoint-down(md) {
             display: none;
           }
@@ -155,7 +157,7 @@
           transition: .5s ease;
           background-repeat: no-repeat;
 
-          // (768px)
+          // (991.98px)
           @include media-breakpoint-down(sm) {
             //            --small: 50% 50%;
             //            min-height: 35rem;
@@ -182,7 +184,7 @@
           background: var(--light);
           z-index: 1;
 
-          // (768px)
+          // (991.98px)
           //          @include media-breakpoint-down(lg) {
           //            height: 3.5rem;
           //          }
@@ -208,7 +210,7 @@
           transform-origin: 50% 50% 0;
           height: 50rem;
 
-          // @media (max-width: 1280px)
+          // @media (1199.98px)
           @include media-breakpoint-down(sm) {
             left: 50%;
             //            height: 66vw;
@@ -242,7 +244,7 @@
               background-position: var(--small);
             }
 
-            // @media (max-width: 1280px)
+            // @media (1199.98px)
             @include media-breakpoint-down(sm) {}
 
             &:after {
@@ -315,7 +317,7 @@
       .card {
         .top-image {
 
-          // @media (max-width: 1280px)
+          // @media (991.98px)
           @include media-breakpoint-up(md) {
             &:before {
               content: '';
@@ -330,7 +332,7 @@
             }
           }
 
-          // @media (max-width: 1280px)
+          // @media (1199.98px)
           @include media-breakpoint-down(lg) {
             &:before {
               content: none;
@@ -364,7 +366,7 @@
               flex-wrap: wrap;
 
               //              min-height: 50rem;
-              // @media (max-width: 1280px)
+              // @media (1199.98px)
               @include media-breakpoint-down(sm) {
                 background-position: var(--small);
                 //                min-height: 40rem;
@@ -393,7 +395,7 @@
         }
       }
     }
-
+    //991.98px
     @include media-breakpoint-up(md) {
       @include media-breakpoint-down(md) {
         &:first-of-type {
@@ -417,7 +419,7 @@
       }
     }
 
-    // @media (max-width: 1280px)
+    // @media (1199.98px)
     @include media-breakpoint-up(lg) {
       padding-right: 7.5px !important;
       padding-left: 7.5px !important;

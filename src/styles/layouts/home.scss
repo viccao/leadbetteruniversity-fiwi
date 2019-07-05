@@ -4,12 +4,12 @@
     padding-top: 4rem;
     overflow-x: hidden;
 
-    // (768px)
+    // (991.98px)
     @include media-breakpoint-down(md) {
       padding-top: 0;
     }
 
-    // @media (max-width: 1280px)
+    // @media (1199.98px)
     .bg {
       position: absolute;
       width: 100%;
@@ -17,7 +17,7 @@
       top: 0;
       left: 0;
 
-      // @media (max-width: 1280px)
+      // @media (991.98px)
       @include media-breakpoint-up(md) {
         left: 1rem;
         width: calc(100% - 2rem);
@@ -54,15 +54,15 @@
 
         div {
           height: 100%;
-          width: calc(100% + calc(var(--height) / 5.5));
-          left: calc(var(--height) / -4.5);
+          width: 100vw;
+          left: -52.5%;
           object-fit: cover;
           transform: skewX(20deg);
           position: absolute;
           top: 0;
-          background-size: 100vw auto;
-          background-position: 50% 1rem;
-          background-attachment: fixed;
+          background-size: cover;
+          background-position: 50% 15%;
+          //          background-attachment: fixed;
         }
       }
     }
@@ -71,7 +71,7 @@
       background: var(--brand-primary);
       padding: 3rem 0;
 
-      // (768px)
+      // (991.98px)
       @include media-breakpoint-down(md) {
         padding: 4rem 0;
         margin-top: 45rem;
@@ -84,6 +84,7 @@
         background: none;
       }
 
+      //(575.98px)
       @include media-breakpoint-down(xs) {
         //        padding: 4rem 0;
         margin-top: 15rem;
@@ -106,7 +107,7 @@
           width: calc(65% + 6rem);
         }
 
-        // (768px)
+        // (991.98px)
         @include media-breakpoint-down(md) {
           //          background-color: rgba(255, 0, 31, 0.51);
           opacity: 1;
@@ -139,10 +140,11 @@
 
           @include media-breakpoint-up(lg) {
             width: calc(100vw + 6rem);
-            background-attachment: fixed;
-            background-position: 50% 0;
+            background-position: 100% 25%;
             background-color: var(--brand-primary);
             background-size: cover;
+            height: var(--height);
+            left: 8rem;
           }
 
           background-size: 200% auto;
@@ -154,7 +156,7 @@
           display: flex;
           flex-wrap: wrap;
 
-          // (768px)
+          // (991.98px)
           @include media-breakpoint-down(md) {
             background-image: none !important;
           }
@@ -180,6 +182,7 @@
           line-height: 2;
         }
 
+        //(575.98px)
         @include media-breakpoint-down(xs) {
           font-size: 1.25rem;
           line-height: 2;
@@ -197,7 +200,7 @@
         font-size: 2.25rem;
         margin: 1rem 0 0;
 
-        // (640px)
+        // (767.98px)
         @include media-breakpoint-down(xs) {
           font-size: 1.75rem;
         }
@@ -212,7 +215,7 @@
       }
     }
 
-    // (768px)
+    // (991.98px)
     @include media-breakpoint-down(md) {
       //      .sm-var(--light) {}
     }

@@ -5,8 +5,19 @@
   {% if current_tags %}
     {% capture blog_title %}{{ blog.title | link_to: blog.url }} &mdash; {{ current_tags.first }}{% endcapture %}
   {% endif %}
+  <header role="banner" class="dale-margin">
 
-  <h1>{{ blog_title }}</h1>
+    <div class="bg" style="background: var(--dark);">
+    </div>
+    <div class="standard-bar">
+      <div class="container">
+        <h1>{{ blog_title }}</h1>
+
+      </div>
+    </div>
+  </header>
+
+<div class="container pt-5 pb-5">
 
   {% if blog.all_tags.size > 0 %}
     <h2>{{ 'blogs.general.categories' | t }}</h2>
@@ -94,3 +105,4 @@
   {% endif %}
 
 {% endpaginate %}
+</div>

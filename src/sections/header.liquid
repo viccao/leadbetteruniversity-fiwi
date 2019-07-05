@@ -17,7 +17,7 @@
   <div class="container">
 
     <div class="row align-items-center">
-    <div class="col-auto">
+    <div class="col-12">
 
           <ul class="nav">
           <li id="main-site">
@@ -47,8 +47,7 @@
                 </li>
               {% endif %}
             {% endfor %}
-          </ul>
-          </li>
+
           <li>
             <a href="/cart">
               {% include 'icon-cart' %}
@@ -56,6 +55,20 @@
               ({{ cart.item_count }} {{ 'layout.cart.items_count' | t: count: cart.item_count }})
             </a>
           </li>
+          {% if customer %}
+            <li>
+                <a href="/account">{% include 'icon-user' %} {{ 'layout.customer.account' | t }}</a>
+            </li>
+          {% else %}
+            <li>
+              <a href="/account/login">{% include 'icon-user' %} Log In</a>
+            </li>
+          {% endif %}
+
+
+          </ul>
+          </li>
+
         </ul>
     </div>
     </div>
@@ -91,7 +104,7 @@
 
 
     <div class="row">
-      <div class="col-md-3 col-sm-3 col-4">
+      <div class="col-md-3 col-sm-3 col-6">
             <a href="/" class="logo-image">
             {% if section.settings.logo != blank %}
               {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
@@ -183,26 +196,17 @@
             </li>
         </ul>
       {% if shop.customer_accounts_enabled %}
-        <!--<ul class="user-nav">
+        <ul class="user-nav">
           {% if customer %}
             <li>
-              {% if customer.first_name != blank %}
-                {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
-                {{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}
-              {% else %}
-                <a href="/account">{{ 'layout.customer.account' | t }}</a>
-              {% endif %}
-            </li>
-            <li>
-              <a href=""></a>
-              {{ 'layout.customer.log_out' | t | customer_logout_link }}
+                <a href="/account">{% include 'icon-user' %} {{ 'layout.customer.account' | t }}</a>
             </li>
           {% else %}
             <li>
-              <a href="{{ customer_login_link }}">{% include 'icon-user' %} Log In</a>
+              <a href="/account/login">{% include 'icon-user' %} Log In</a>
             </li>
           {% endif %}
-        </ul>-->
+        </ul>
       {% endif %}
       </div>
     </div>

@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import 'bootstrap';
+//import 'bootstrap';
 
 import 'lazysizes/plugins/object-fit/ls.object-fit';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
@@ -26,6 +26,47 @@ $(document).ready(function() {
 
   onUpdate();
 })
+
+cssVar();
+
+$(window).on("load", function() {
+  cssVar();
+});
+
+var resizeTimer;
+
+$(window).on('resize', function(e) {
+
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(function() {
+
+    cssVar();
+  }, 300);
+
+});
+
+function cssVar() {
+
+
+  const headerHeight = $('.nav-container').outerHeight();
+  const bgHeight = $('.bg').outerHeight();
+
+  $('body').attr('style', '--headerHeight:' + headerHeight + 'px;');
+  $('header').attr('style', '--height: ' + bgHeight + 'px;');
+  $('html').attr('style', '--vw: ' + $(window).width() / 100)
+
+
+  if ($('.collections-grid').length) {
+
+    $('.single-collection .over').each(function() {
+
+      var width = $(this).children('h6').outerWidth();
+
+      $(this).attr('style', '--width: ' + width + 'px');
+
+    });
+  }
+}
 
 
 const matcher = window.matchMedia('(prefers-color-scheme: dark)');
@@ -92,7 +133,7 @@ if (window.navigator.cookieEnabled) {
   );
 }
 
-$('svg path').not('#logo path').attr('fill', 'var(--brand-secondary)');
+$('svg path').not('#logo path, .no-swap *').attr('fill', 'var(--brand-secondary)');
 
 $('.nav-toggle').click(function() {
 
@@ -101,50 +142,8 @@ $('.nav-toggle').click(function() {
   return false;
 });
 
-$('.input-group .form-control').blur(function() {
-    $(this).parents('.input-group').removeClass("active");
-  })
-  .focus(function() {
-    $(this).parents('.input-group').addClass("active")
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+  $('.input-group .form-control').click(function() {
+    $(this).parents('.input-group').addClass("active");
   });
-
-
-
-setTimeout(function() {
-  cssVar()
-}, 250);
-
-var resizeTimer;
-
-$(window).on('resize', function(e) {
-
-  clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(function() {
-
-    cssVar();
-  }, 250);
-
-});
-
-function cssVar() {
-
-
-  const headerHeight = $('.nav-container').outerHeight();
-  const bgHeight = $('.bg').outerHeight();
-
-  $('body').attr('style', '--headerHeight:' + headerHeight + 'px;');
-  $('header').attr('style', '--height: ' + bgHeight + 'px;');
-  $('html').attr('style', '--vw: ' + $(window).width() / 100)
-
-
-  if ($('.collections-grid').length) {
-
-    $('.single-collection .over').each(function() {
-
-      var width = $(this).children('h6').outerWidth();
-
-      $(this).attr('style', '--width: ' + width + 'px');
-
-    });
-  }
 }

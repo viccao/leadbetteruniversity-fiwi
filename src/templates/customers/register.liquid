@@ -1,51 +1,111 @@
-<h1>{{ 'customer.register.title' | t }}</h1>
 
+<header role="banner" class="dale-margin">
+
+  <div class="bg" style="background: var(--dark);">
+  </div>
+  <div class="standard-bar">
+    <div class="container">
+      <h1>{{ 'customer.register.title' | t }}</h1>
+
+    </div>
+  </div>
+</header>
+
+<div class="container pt-5 pb-5">
 {% form 'create_customer' %}
   {{ form.errors | default_errors }}
 
-  <label for="FirstName" class="label-hidden">
-    {{ 'customer.register.first_name' | t }}
-  </label>
-  <input type="text"
-    name="customer[first_name]"
-    id="FirstName"
-    placeholder="{{ 'customer.register.first_name' | t }}"
-    autofocus
-    {% if form.first_name %}value="{{ form.first_name }}"{% endif %}>
+  <div class="row">
+  <div class="col-lg-6 col-sm-12">
 
-  <label for="LastName" class="label-hidden">
-    {{ 'customer.register.last_name' | t }}
-  </label>
-  <input type="text"
-    name="customer[last_name]"
-    id="LastName"
-    placeholder="{{ 'customer.register.last_name' | t }}"
-    {% if form.last_name %}value="{{ form.last_name }}"{% endif %}>
+  <div class="row">
+    <div class="col-lg-6 mb-3">
+      <div class="input-group">
 
-  <label for="Email" class="label-hidden">
-    {{ 'customer.register.email' | t }}
-  </label>
-  <input type="email"
-    name="customer[email]"
-    id="Email"
-    class="{% if form.errors contains 'email' %}input-error{% endif %}"
-    placeholder="{{ 'customer.register.email' | t }}"
-    value="{% if form.email %}{{ form.email }}{% endif %}"
-    spellcheck="false"
-    autocomplete="off"
-    autocapitalize="off">
+          <input type="text"
+            name="customer[first_name]"
+            id="FirstName"
+            class="form-control"
+            spellcheck="false"
+            autocomplete="nope"
+            autofill="off"
+            autocapitalize="off"
+                 required><div class="bg"></div>
+          <label for="FirstName" class="float-label">
+            {{ 'customer.register.first_name' | t }}
+          </label>
 
-  <label for="CreatePassword" class="label-hidden">
-    {{ 'customer.register.password' | t }}
-  </label>
-  <input type="password"
-    name="customer[password]"
-    id="CreatePassword"
-    class="{% if form.errors contains 'password' %}input-error{% endif %}"
-    placeholder="{{ 'customer.register.password' | t }}">
+      </div>
+    </div>
+    <div class="col-lg-6 mb-3">
+      <div class="input-group">
+        <input type="text"
+          name="customer[last_name]"
+          id="LastName"
+          class="form-control"
+          spellcheck="false"
+          autocomplete="nope"
+          autofill="off"
+          autocapitalize="off"
+          required><div class="bg"></div>
+        <label for="LastName" class="float-label">
+          {{ 'customer.register.last_name' | t }}
+        </label>
 
-  <p>
-    <input type="submit" value="{{ 'customer.register.submit' | t }}" class="button">
-  </p>
-  <a href="{{ shop.url }}">{{ 'customer.register.cancel' | t }}</a>
+
+      </div>
+    </div>
+
+    <div class="col-lg-6 mb-3">
+      <div class="input-group">
+
+              <input type="email"
+                name="customer[email]"
+                id="Email"
+                class="form-control {% if form.errors contains 'email' %}input-error{% endif %}"
+                spellcheck="false"
+                autocomplete="nope"
+                autofill="off"
+                autocapitalize="off"
+                required><div class="bg"></div>
+
+              <label for="Email" class="float-label">
+                {{ 'customer.register.email' | t }}
+              </label>
+          </div>
+    </div>
+
+    <div class="col-lg-6 mb-3">
+      <div class="input-group">
+          <input type="password"
+            name="customer[password]"
+            id="CreatePassword"
+            class="form-control {% if form.errors contains 'password' %}input-error{% endif %}"
+            spellcheck="false"
+            autocomplete="nope"
+            autofill="off"
+            autocapitalize="off"
+            required><div class="bg"></div>
+
+          <label for="CreatePassword" class="float-label">
+            {{ 'customer.register.password' | t }}
+          </label>
+         </div>
+    </div>
+
+
+    </div>
+
+    <div class="row align-items-end">
+    <div class="col-lg-auto mb-3">
+
+    <input type="submit" value="{{ 'customer.register.submit' | t }}" class="btn btn-primary">
+    </div>
+    <div class="col-lg-6 mb-3">
+    <a href="{{ shop.url }}">{{ 'customer.register.cancel' | t }}</a>
+    </div>
+    </div>
+
+  </div>
+</div>
 {% endform %}

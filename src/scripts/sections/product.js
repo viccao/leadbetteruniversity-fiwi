@@ -58,7 +58,7 @@ $(window).on('resize', function(e) {
   resizeTimer = setTimeout(function() {
 
     cssVar();
-  }, 250);
+  }, 300);
 
 });
 

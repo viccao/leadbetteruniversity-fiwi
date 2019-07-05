@@ -39,34 +39,34 @@
       <div class="col-lg-2 col-sm-3 col-5 order-lg-1 order-2 mb-5">
        {% include 'icon-logo' %}
       </div>
-    <div class="col-lg ml-auto order-lg-2 order-1">
-    {%- assign footer_linklist = section.settings.footer_linklist -%}
-    {% if linklists[footer_linklist].links.size > 0 %}
-      <ul class="nav">
-        {% for link in linklists[footer_linklist].links %}
-          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-      <ul class="nav d-lg-none d-block">
-        {% for link in linklists.secondary-footer.links %}
-            <li title="Link to {{ link.title }}">
-              <a href="{{ link.url }}" title="Link to {{ link.title }}">{{ link.title }}</a>
+      <div class="col-lg-auto ml-auto order-lg-2 order-1">
+      {%- assign footer_linklist = section.settings.footer_linklist -%}
+      {% if linklists[footer_linklist].links.size > 0 %}
+        <ul class="nav">
+          {% for link in linklists[footer_linklist].links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+        <ul class="nav d-lg-none d-block">
+          {% for link in linklists.secondary-footer.links %}
+              <li title="Link to {{ link.title }}">
+                <a href="{{ link.url }}" title="Link to {{ link.title }}">{{ link.title }}</a>
 
-                {% if link.links != blank %}
-                      <ul class="dropdown">
-                        {% for child_link in link.links %}
-                              <li title="Link to {{ child_link.title }}">
-                                <a href="{{ child_link.url }}" title="Link to {{ child_link.title }}">{{ child_link.title }}</a>
+                  {% if link.links != blank %}
+                        <ul class="dropdown">
+                          {% for child_link in link.links %}
+                                <li title="Link to {{ child_link.title }}">
+                                  <a href="{{ child_link.url }}" title="Link to {{ child_link.title }}">{{ child_link.title }}</a>
 
-                        </li>
-                        {% endfor %}
-              </ul>
-              {% endif %}
-            </li>
-        {% endfor %}
-      </ul>
-    </div>
+                          </li>
+                          {% endfor %}
+                </ul>
+                {% endif %}
+              </li>
+          {% endfor %}
+        </ul>
+      </div>
 
     </div>
 

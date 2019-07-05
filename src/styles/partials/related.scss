@@ -10,7 +10,7 @@
     }
 
     .card {
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.09), 0 6px 6px rgba(0, 0, 0, 0.13);
+      box-shadow: 0 rem(10) rem(20) rgba(0, 0, 0, 0.09), 0 rem(6) rem(6) rgba(0, 0, 0, 0.13);
       border: none;
       transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
       height: 100%;
@@ -44,7 +44,7 @@
           background-size: cover;
           padding-bottom: 70%;
 
-          // (640px)
+          // (991.98px)
           @include media-breakpoint-down(md) {
             //            padding-bottom: 100%;
           }
@@ -75,7 +75,7 @@
 
               h4 {
                 color: var(--brand-secondary);
-//                text-shadow: 0 10px 20px rgba(0, 0, 0, 0.09), 0 6px 6px rgba(0, 0, 0, 0.13);
+//                text-shadow: 0 rem(10) rem(20) rgba(0, 0, 0, 0.09), 0 rem(6) rem(6) rgba(0, 0, 0, 0.13);
 
               }
             }

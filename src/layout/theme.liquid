@@ -32,6 +32,7 @@
     <meta name="description" content="{{ page_description | escape }}">
   {%- endif -%}
 
+  {% include 'script-tags', layout: 'theme' %}
   {% include 'social-meta-tags' %}
   {% include 'css-variables' %}
 
@@ -52,7 +53,6 @@
     {% endif %}
   </script>
 
-  {% include 'script-tags', layout: 'theme' %}
 
   {{ content_for_header }}
 

@@ -12,8 +12,60 @@ $baseFontSize: 14;
   --dark-on-white: #000;
 }
 
+.img-fluid {
+  svg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+svg#logo {
+  width: 100%;
+  height: auto;
+  //  #wordmark {
+  //    fill: white;
+  //  }
+  //
+  //  #mark {
+  //    fill: white;
+  //
+  //    // (767.98px)
+  //    @include media-breakpoint-down(sm) {
+  //      display: none;
+  //    }
+  //  }
+  //
+  //  //      * {
+  //  //        fill: var(--light);
+  //  //      }
+  //  #lines g rect {
+  //    display: none;
+  //  }
+  //
+  //  path:not([fill="none"]) {
+  //    fill: white;
+  //  }
+  //
+  //  *[fill="#C10230"]:not([fill="none"]) {
+  //    fill: var(--brand-primary);
+  //  }
+  //
+  //  *[fill="#231F20"]:not([fill="none"]) {
+  //    fill: white;
+  //  }
+  //
+  //  *[opacity="0.22"] {
+  //    fill: white;
+  //    opacity: .5;
+  //  }
+}
+
 .text-white {
   color: var(--white-text) !important;
+
+  * {
+    color: var(--white-text) !important;
+  }
 }
 
 //@media (prefers-color-scheme: dark) {
@@ -42,10 +94,9 @@ $baseFontSize: 14;
 //    }
 //  }
 //}
-
 .dale-margin {
 
-  // (768px)
+  // (991.98px)
   @include media-breakpoint-up(md) {
     padding: 1rem;
   }
@@ -82,14 +133,14 @@ $condensed: 'Heroic Condensed';
   --banner-width: 45%;
 }
 
-// @media (max-width: 1280px)
+// @media (1199.98px)
 @include media-breakpoint-up(lg) {
   .container {
     max-width: 80%;
   }
 }
 
-// (640px)
+// (1199.98px)
 @include media-breakpoint-down(lg) {
   .container {
     max-width: 85%;
@@ -203,7 +254,7 @@ section {
 html {
   overflow-x: hidden;
 
-  // (640px)
+  // (575.98px)
   @include media-breakpoint-down(xs) {
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
@@ -216,7 +267,7 @@ header {
     padding: 4.1rem 0;
     position: relative;
 
-    // (768px)
+    // (991.98px)
     @include media-breakpoint-down(md) {
       padding: 1rem 0;
     }
@@ -232,7 +283,7 @@ header {
       width: var(--banner-width);
       --large: 50% 50%;
 
-      // @media (max-width: 1280px)
+      // @media (991.98px)
       @include media-breakpoint-down(md) {
         display: none;
       }
@@ -279,7 +330,7 @@ div[data-bgset] {
   display: none;
 }
 
-// (640px)
+// (767.98px)
 @include media-breakpoint-down(sm) {
   table.responsive-table.table {
     display: flex;
@@ -300,19 +351,19 @@ div[data-bgset] {
         vertical-align: middle;
 
         td {
-          flex: 1 1 100%;
-          width: 100%;
           border: none;
           margin: 0;
           padding: .5rem;
           width: 100%;
           text-align: left !important;
           vertical-align: middle;
+          flex: 1 1 auto;
+          width: auto;
+          font-size: rem(12);
 
-          &:nth-child(even) {
-            background: #eee;
-          }
-
+          //          &:nth-child(even) {
+          //            background: #eee;
+          //          }
           *:not(img) {
             display: inline-block;
             margin: 0 !important;
@@ -321,6 +372,17 @@ div[data-bgset] {
             text-align: left !important;
             line-height: 1;
             height: auto;
+          }
+
+          &[data-label="Order"] {
+            &:before {
+              content: 'Order: ';
+            }
+
+            flex: 1 1 100%;
+            width: 100%;
+            font-size: 1rem;
+            font-weight: bold;
           }
 
           img {
@@ -334,7 +396,17 @@ div[data-bgset] {
     }
 
     thead {
-      max-width: 25%;
+      max-width: 50%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: none;
+
+      tr {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
 
       th {
         border: none;
@@ -348,6 +420,9 @@ div[data-bgset] {
         font-size: 1rem;
         line-height: 1.5;
         vertical-align: middle;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
 
         * {
           font-weight: bold;

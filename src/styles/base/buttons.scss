@@ -1,9 +1,9 @@
 .btn {
   line-height: 1;
-  border-radius: 100px;
+  border-radius: rem(100);
   padding: 1rem 2.5rem;
   color: var(--brand-primary);
-  border: 3px solid var(--brand-primary);
+  border: rem(3) solid var(--brand-primary);
   font-weight: bold;
   text-transform: uppercase;
 
@@ -32,7 +32,7 @@
 
   &.no-small {
 
-    // @media (max-width: 1280px)
+    // @media (991.98px)
     @include media-breakpoint-down(md) {
       background: none !important;
       padding: 1rem 0 0 !important;

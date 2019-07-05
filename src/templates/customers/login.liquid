@@ -21,27 +21,35 @@
     {{ form.errors | default_errors }}
 
   <div class="row">
-  <div class="col-sm-auto">
+    <div class="col-lg-4 col-sm-6 mb-3">
 
-    <div class="input-group mb-4">
-        <input type="email"
-               name="customer[email]"
-               id="CustomerEmail"
-               class="{% if form.errors contains 'email' %}input-error{% endif %} form-control"
-               spellcheck="false"
-               autocomplete="nope"
-               autofill="off"
-               autocapitalize="off"
-               required>
-        <label for="CustomerEmail" class="label-hidden float-label">
-          {{ 'customer.login.email' | t }}
-        </label>
-      </div>
+      <div class="input-group">
+          <input type="email"
+                 name="customer[email]"
+                 id="CustomerEmail"
+                 class="{% if form.errors contains 'email' %}input-error{% endif %} form-control"
+                 spellcheck="false"
+                 autocomplete="nope"
+                 autofill="off"
+                 autocapitalize="off"
+                 required>
+                      <div class="bg"></div>
+
+          <label for="CustomerEmail" class="label-hidden float-label">
+            {{ 'customer.login.email' | t }}
+          </label>
+        </div>
+    </div>
   </div>
-  <div class="col-sm-auto">
+
+  <div class="row">
+
+
+  <div class="col-lg-4 col-sm-6 mb-2">
 
         {% if form.password_needed %}
-      <div class="input-group mb-3">
+      <div class="inline-btn mb-5">
+         <div class="input-group">
           <input type="password"
                  name="customer[password]"
                  id="CustomerPassword"
@@ -49,26 +57,35 @@
                  autocomplete="nope"
                  autofill="off"
                  required>
+                      <div class="bg"></div>
+
           <label for="CustomerPassword" class="label-hidden float-label">
             {{ 'customer.login.password' | t }}
           </label>
+        <div class="btn-container">
+
+          <button type="submit" name="commit" class="btn btn-primary">{{ 'customer.login.sign_in' | t }}
+          </button>
+
+          </div>
+        </div>
       </div>
         {% endif %}
+
   </div>
   </div>
 
-    <input class="btn btn-primary mt-1 mb-4" type="submit" class="button" value="{{ 'customer.login.sign_in' | t }}">
 
 
   <div class="row">
-  <div class="col-auto"><a class="" href="/">{{ 'customer.login.cancel' | t }}</a>
+  <div class="col-sm-auto"><a class="" href="/">{{ 'customer.login.cancel' | t }}</a>
   </div>
-  <div class="col-auto">
+  <div class="col-sm-auto">
     <a class="" href="/account/register">
       {{ 'layout.customer.create_account' | t }}
     </a>
   </div>
-  <div class="col-auto">
+  <div class="col-sm-auto">
 
     {% if form.password_needed %}
     <a class="" href="#recover" data-recover-toggle>{{ 'customer.login.forgot_password' | t }}</a>

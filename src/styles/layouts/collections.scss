@@ -1,11 +1,12 @@
-.template-collection {
+.template-collection,
+.template-list-collections {
   header {
     .bar {
       background: var(--brand-primary);
       padding: 4.1rem 0;
       position: relative;
 
-      // (768px)
+      // (991.98px)
       @include media-breakpoint-down(md) {
         padding: 1rem 0;
       }
@@ -21,12 +22,10 @@
         width: var(--banner-width);
         --large: 50% 50%;
 
-        // @media (max-width: 1280px)
+        // @media (991.98px)
         @include media-breakpoint-down(md) {
           display: none;
         }
-
-
 
         img,
         .plyr {

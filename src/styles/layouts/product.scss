@@ -91,26 +91,26 @@
   .front {
     --banner-width: 47.5%;
 
-    // (768px)
-    @include media-breakpoint-down(lg) {
+    // (991.98px)
+    @include media-breakpoint-down(md) {
       --banner-width: 100%;
     }
 
     .bg {
-      @include media-breakpoint-up(xl) {
+      @include media-breakpoint-up(lg) {
         position: absolute;
         top: 1rem;
-        right: calc((var(--height) * (var(--vw) / var(--height))) * -8px);
+        right: calc((var(--height) * (var(--vw) / var(--height))) * -7px);
         height: calc(100% - 6rem);
         transform: skewX(-20deg) translateZ(0);
         border-left: 2rem solid var(--light);
       }
 
-      @include media-breakpoint-down(lg) {
+      @include media-breakpoint-down(md) {
         padding: 0 1rem;
       }
 
-      // (640px)
+      // (767.98px)
       @include media-breakpoint-down(sm) {
         padding: 0;
         height: auto;
@@ -139,9 +139,9 @@
           width: auto;
           z-index: 99;
           //        border: 1rem solid var(--light);
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.09), 0 6px 6px rgba(0, 0, 0, 0.13);
+          box-shadow: 0 rem(10) rem(20) rgba(0, 0, 0, 0.09), 0 rem(6) rem(6) rgba(0, 0, 0, 0.13);
           height: 360px;
-          width: 640px;
+          width: 767.98px;
           transform: scale(.5);
 
           .plyr {
@@ -158,9 +158,10 @@
         top: 0;
         object-fit: cover;
 
-        @include media-breakpoint-up(xl) {
+        @include media-breakpoint-up(lg) {
           height: calc(100%);
-          width: calc(var(--height) * 2px);
+          --factor: .12rem;
+          width: 130%;
           left: 50%;
           transform: skewX(20deg) translateX(-50%) translateZ(0);
         }
@@ -218,7 +219,7 @@
       padding: 4.1rem 0;
       position: relative;
 
-      // (768px)
+      // (991.98px)
       @include media-breakpoint-down(sm) {
         padding: 1.5rem 0;
 
@@ -247,8 +248,8 @@
 
   .main {
 
-    // @media (max-width: 1280px)
-    @include media-breakpoint-down(lg) {
+    // @media (991.98px)
+    @include media-breakpoint-down(md) {
       display: flex;
       flex-wrap: wrap;
 
@@ -282,7 +283,7 @@
     position: relative;
     z-index: 2;
 
-    // (640px)
+    // (767.98px)
     @include media-breakpoint-down(sm) {
       margin: 0;
     }
@@ -305,7 +306,7 @@
     position: relative;
     max-width: 25rem;
 
-    // (640px)
+    // (767.98px)
     @include media-breakpoint-down(sm) {
       display: flex;
       flex-wrap: wrap;
@@ -330,7 +331,7 @@
         margin: 0;
       }
 
-      // (640px)
+      // (767.98px)
       @include media-breakpoint-down(sm) {
         order: 2;
         margin: 1rem 0 2rem;
@@ -375,7 +376,7 @@
       //      left: 0;
       top: calc(var(--size) / -4);
 
-      // (640px)
+      // (767.98px)
       @include media-breakpoint-down(sm) {
         position: relative;
         left: auto;
@@ -408,7 +409,7 @@
       @extend .row;
       flex-direction: column;
 
-      // @media (max-width: 1280px)
+      // @media (1199.98px)
       @include media-breakpoint-up(xl) {
         max-height: 50%;
       }
@@ -453,7 +454,7 @@
 
 .instructors {
 
-  // @media (max-width: 1280px)
+  // @media (1199.98px)
   @include media-breakpoint-up(lg) {
     left: -3rem;
   }
@@ -463,7 +464,7 @@
     max-width: 25rem;
     margin: 0 auto 4rem;
 
-    // (640px)
+    // (767.98px)
     @include media-breakpoint-down(sm) {
       display: flex;
       flex-wrap: wrap;
@@ -504,7 +505,7 @@
         transform-origin: 50% 50% 0;
       }
 
-      // (640px)
+      // (767.98px)
       @include media-breakpoint-down(sm) {
         order: 2;
         margin: 0 0 1rem;
@@ -536,7 +537,7 @@
       top: calc(var(--size) / -4);
       z-index: 1;
 
-      // (640px)
+      // (767.98px)
       @include media-breakpoint-down(sm) {
         position: relative;
         left: auto;
