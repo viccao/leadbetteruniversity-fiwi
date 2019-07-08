@@ -2,6 +2,10 @@
 
     <div class="front">
       <div class="bg">
+
+        <a href="#" class="video-toggle btn"> {% include 'icon-play' %} Continue Watching Video?</a>
+
+        <a href="#" class="close-toggle">{% include 'icon-close' %}</a>
         {% if product.metafields.custom_fields["video_preview"] != blank %}
         <div id="player" poster="{% if product.featured_image != blank %}{{ product | img_url: '1600x' }}{% endif %}" data-plyr-provider="youtube" data-plyr-embed-id="{{ product.metafields.custom_fields["video_preview"] }}" data-plyr-config='{ noCookie: false, rel: 0, showinfo: 0, iv_load_policy: 3, modestbranding: 1, controls: 0 }'></div>
         <script>

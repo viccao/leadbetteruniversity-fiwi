@@ -97,6 +97,60 @@
     }
 
     .bg {
+      .close-toggle {
+        position: absolute;
+        top: 0;
+        right: 0;
+        //        height: 2rem;
+        //        width: 2rem;
+        background: black;
+        border-radius: 100%;
+        z-index: 0;
+        transform: scale(2);
+        //        padding: .5rem;
+        height: 1.75rem;
+        width: 1.75rem;
+        display: flex;
+        align-content: center;
+        align-items: center;
+        border: 2px solid white;
+        opacity: .75;
+        opacity: 0;
+        pointer-events: none;
+
+        svg {
+          width: 1rem;
+          height: 1rem;
+          margin: 0 auto;
+          display: block;
+
+          path {
+            fill: white !important;
+          }
+        }
+      }
+
+      .video-toggle {
+        position: absolute;
+        z-index: 0;
+        right: 6rem;
+        transform: scale(1.5);
+        transform-origin: 100% 0% 0;
+        background: white;
+        opacity: .75;
+
+        &:hover {
+          background: var(--brand-primary);
+        }
+
+        //        font-size: 2rem;
+        //        padding: 2rem 4rem;
+        svg {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+      }
+
       @include media-breakpoint-up(lg) {
         position: absolute;
         top: 1rem;
@@ -139,16 +193,38 @@
           width: auto;
           z-index: 99;
           //        border: 1rem solid var(--light);
-          box-shadow: 0 rem(10) rem(20) rgba(0, 0, 0, 0.09), 0 rem(6) rem(6) rgba(0, 0, 0, 0.13);
-          height: 360px;
+          height: auto;
           width: 767.98px;
           transform: scale(.5);
+          overflow: visible;
+
+          .video-toggle {
+            z-index: 1;
+          }
 
           .plyr {
             transform: none;
             height: auto;
             width: auto;
             left: auto;
+            opacity: 0;
+            box-shadow: 0 rem(10) rem(20) rgba(0, 0, 0, 0.09), 0 rem(6) rem(6) rgba(0, 0, 0, 0.13);
+          }
+
+          &.watch {
+            .plyr {
+              opacity: 1;
+            }
+
+            .video-toggle {
+              z-index: 0;
+            }
+
+            .close-toggle {
+              z-index: 2;
+              opacity: 1;
+              pointer-events: all;
+            }
           }
         }
       }

@@ -111,6 +111,17 @@ if (video.length) {
 }
 
 
+$('.video-toggle').click(function(){
+
+  $('.bg').addClass('watch');
+  return false;
+});
+$('.close-toggle').click(function(){
+
+  $('.bg').removeClass('watch').removeClass('float');
+  return false;
+});
+
 
 register('product', {
   async onLoad() {

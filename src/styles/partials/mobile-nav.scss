@@ -10,6 +10,7 @@
   visibility: hidden;
   transition: .3s ease;
   padding-top: calc(var(--headerHeight) + 1rem);
+  overflow-x: hidden;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 
