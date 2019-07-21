@@ -57,7 +57,6 @@
   {{ content_for_header }}
 
   <script src="https://cdn.plyr.io/3.5.6/plyr.js"></script>
-
 </head>
 
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}{% if collection %} collection-{{ collection.title | handle }}{% endif %}{% for tag in product.tags %} {{ tag }}{% endfor %}">

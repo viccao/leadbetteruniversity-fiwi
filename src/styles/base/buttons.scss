@@ -7,7 +7,7 @@
   font-weight: bold;
   text-transform: uppercase;
 
-  &:hover {
+  &:hover, &:focus {
     border-color: var(--brand-secondary);
     background: var(--brand-secondary);
     color: var(--light);
@@ -17,7 +17,7 @@
     background-color: var(--brand-primary);
     color: var(--light);
 
-    &:hover {
+    &:hover, &:focus {
       border-color: var(--brand-primary);
       color: var(--brand-primary);
       background-color: var(--light);

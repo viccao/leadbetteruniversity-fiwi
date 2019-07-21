@@ -9,7 +9,7 @@
         <ul class="nav">
           {% for link in linklists.secondary-footer.links %}
               <li title="Link to {{ link.title }}">
-                <a href="{{ link.url }}" title="Link to {{ link.title }}">{{ link.title }}</a>
+                <a title="Link to {{ link.title }}" disabled>{{ link.title }}</a>
 
                   {% if link.links != blank %}
                         <ul class="dropdown">
@@ -50,7 +50,7 @@
       {% endif %}
         <ul class="nav d-lg-none d-block">
           {% for link in linklists.secondary-footer.links %}
-              <li title="Link to {{ link.title }}">
+              <li>
                 <a href="{{ link.url }}" title="Link to {{ link.title }}">{{ link.title }}</a>
 
                   {% if link.links != blank %}
@@ -87,7 +87,7 @@
           <li>
             <a href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
               {% include social_icon %}
-              <span class="icon-fallback-text">{{ social }}</span>
+              <span class="icon-fallback-text sr-only">Leadbetter on {{ social }}</span>
             </a>
           </li>
         {% endif %}

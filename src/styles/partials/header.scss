@@ -174,7 +174,7 @@ section[data-section-id="header"] {
           text-decoration: none;
           margin-left: auto;
 
-          &:hover {
+          &:hover, &:focus {
             color: var(--brand-primary);
           }
 
@@ -183,11 +183,12 @@ section[data-section-id="header"] {
           //          }
         }
 
-        &:hover {
+        &:hover, &:focus-within {
           ul {
             opacity: 1;
             transform: translateY(0);
             pointer-events: all;
+            visibility: visible;
           }
         }
 
@@ -206,6 +207,7 @@ section[data-section-id="header"] {
           transform: translateY(rem(10));
           pointer-events: none;
           height: auto;
+          visibility: hidden;
 
           li {
             text-align: left;
@@ -218,7 +220,7 @@ section[data-section-id="header"] {
               background: var(--brand-secondary);
               width: 25rem;
 
-              &:hover {
+              &:hover, &:focus {
                 background: var(--brand-primary);
                 color: white;
               }
@@ -263,7 +265,7 @@ section[data-section-id="header"] {
         font-size: .75rem;
         text-decoration: none;
 
-        &:hover {
+        &:hover, &:focus {
           color: var(--brand-primary);
           opacity: 1;
         }
@@ -324,7 +326,7 @@ section[data-section-id="header"] {
             //            @extend .transition;
           }
 
-          &:hover {
+          &:hover, &:focus {
             color: var(--dark);
 
             svg {

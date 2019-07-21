@@ -68,13 +68,13 @@
           }
         }
 
-        &:hover {
+        &:hover, &:focus {
 
           //          pointer-events: none;
           > a {
             pointer-events: none;
 
-            &:hover {
+            &:hover, &:focus {
               color: white;
             }
           }

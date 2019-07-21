@@ -12,6 +12,13 @@ $baseFontSize: 14;
   --dark-on-white: #000;
 }
 
+html a {
+
+  &:focus {
+    outline: auto;
+  }
+}
+
 .img-fluid {
   svg {
     width: 100%;

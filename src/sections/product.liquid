@@ -14,6 +14,11 @@
             const player = new Plyr('#player');
         </script>
         {% else %}
+
+       <div hidden>
+          {% include 'responsive-image' with image: product.featured_image, max_width: 700, max_height: 800 %}
+        </div>
+
         <img src="{% if product.featured_image != blank %}{{ product | img_url: '1600x' }}{% else %}https://via.placeholder.com/800x500{% endif %}">
         {% endif %}
       </div>
@@ -29,7 +34,7 @@
         <div class="container">
 
           <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-7">
              <h1>{{ product.title }}</h1>
           </div>
           </div>
@@ -79,10 +84,11 @@
 
             </div>
             </div>
-            <div class="col-lg-6 order-md-2 order-1 mb-md-0 mb-2">
+            <div class="col-lg-4 col-md-6 col-sm-8 order-md-2 order-1 mb-md-0 mb-2">
 
             <div data-price-wrapper>
             <span data-product-price class="h1 price">{{ current_variant.price | money }}</span>
+
 
             {% if product.compare_at_price_max > product.price %}
             <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
@@ -173,7 +179,7 @@
             </div>
             <div class="col-lg">
               {% if product.metafields.custom_fields["instructor"] != blank %}
-              <div class="instructor d-sm-block d-none">
+              <div class="instructor d-sm-block d-none{% if product.metafields.custom_fields["instructor_headshot"] == blank %} no-headshot{% endif %}">
                 <div class="behind">
                   <div>
                     <h5>{{ product.metafields.custom_fields["instructor"] }}</h5>
@@ -229,7 +235,7 @@
        <div class="row">
           <div class="col-sm-12">
 
-            <h2>Course Objectives</h2>
+            <h2>Additional Information</h2>
 
             <div class="col-wrapper align-items-start">
             {{ product.description }}
@@ -349,7 +355,9 @@
 
 
             </a>
-
+            <div hidden>
+                {% include 'responsive-image' with image: image_object, max_width: 700, max_height: 800 %}
+            </div>
           </div>
           <div class="bottom">
 

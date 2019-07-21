@@ -33,6 +33,11 @@
 
                 <div class="lazyload img" data-bgset="{% include 'responsive-bg-image', image: image_object %}" style="{% if collection.metafields.custom_fields["small_positioning"] != blank %} --small: {{ collection.metafields.custom_fields["small_positioning"] }};{% endif %}{% if collection.metafields.custom_fields["large_positioning"] != blank %} --large: {{ collection.metafields.custom_fields["large_positioning"] }};{% endif %}"></div>
 
+              <div hidden>
+                {% include 'responsive-image' with image: image_object, max_width: 700, max_height: 800 %}
+              </div>
+
+
                 <div class="overlay">
 
                 <div class="lazyload" data-bgset="{% include 'responsive-bg-image', image: image_object %}" style="{% if collection.metafields.custom_fields["small_positioning"] != blank %} --small: {{ collection.metafields.custom_fields["small_positioning"] }};{% endif %}{% if collection.metafields.custom_fields["large_positioning"] != blank %} --large: {{ collection.metafields.custom_fields["large_positioning"] }};{% endif %}"></div>

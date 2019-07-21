@@ -54,7 +54,7 @@
 
       // (991.98px)
       @include media-breakpoint-up(lg) {
-        &:hover {
+        &:hover, &:focus {
           .top-image {
             .over {
               //            left: calc(100% - var(--width));
@@ -299,7 +299,7 @@
       }
 
       @include media-breakpoint-up(lg) {
-        &:hover {
+        &:hover, &:focus {
           .card {
             .top-image {
               .overlay {

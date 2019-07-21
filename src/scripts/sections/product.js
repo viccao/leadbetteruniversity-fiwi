@@ -11,6 +11,7 @@ import { formatMoney } from '@shopify/theme-currency';
 import { register } from '@shopify/theme-sections';
 import { forceFocus } from '@shopify/theme-a11y';
 import 'jquery-visible';
+import fitty from 'fitty';
 
 const classes = {
   hide: 'hide',
@@ -47,6 +48,7 @@ const priceVal = price.text(),
 
 price.html(splitPrice[0] + '<span>.' + splitPrice[1] + '</span>');
 
+fitty('.price');
 
 cssVar();
 

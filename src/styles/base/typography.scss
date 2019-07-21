@@ -54,7 +54,7 @@ html {
       color: var(--brand-primary);
       transition: .3s ease;
 
-      &:hover {
+      &:hover, &:focus {
         color: var(--brand-secondary);
         text-decoration: none;
       }
@@ -65,7 +65,7 @@ html {
     color: var(--brand-primary);
     transition: .3s ease;
 
-    &:hover {
+    &:hover, &:focus {
       color: var(--brand-secondary);
       text-decoration: none;
     }

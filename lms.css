@@ -1,0 +1,206 @@
+html > body .router-outlet:not(.direction-rtl) .seven-layout .mdl-layout__header-row {
+  height: auto;
+  padding: 1rem 0 1rem 75px;
+  align-items: center;
+  background: black;
+}
+
+html > body .seven-layout .mdl-layout__drawer-button {
+  height: auto;
+  top: 39%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+html.mdl-js {
+  font-family: 'Avenir';
+  --title-spacing: .45em;
+}
+
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+mark,
+menu,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+q,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+summary,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video,
+* {
+  font-family: 'Avenir';
+  text-shadow: none !important;
+}
+
+html > body h1,
+html > body h6,
+html > body h2,
+html > body h3,
+html > body h4,
+html > body h5 {
+  letter-spacing: var(--title-spacing);
+  text-transform: uppercase;
+  font-family: 'Avenir' !important;
+}
+
+html > body .seven-layout .mdl-layout__header-row .mdl-layout-title {
+  border: none;
+}
+
+.seven-layout .mdl-layout__header-row .seven-logo {
+  border: none;
+}
+
+html > body .accordion-wrapper .accordion-item .accordion-item-wrap .accordion-item-head .accordion-item-heading {
+  font-weight: bold;
+  font-family: 'Avenir';
+  margin-bottom: .5rem;
+}
+
+html > body .button-dropdown-wrapper.fullWidth .panel {
+  top: 0;
+  padding-top: 7rem;
+  max-height: 100vh !important;
+  z-index: -1;
+  background: black;
+}
+
+html > body .breadcrumbs-overlay.overlay-showed {
+  display: none;
+}
+
+html > body .overlay-showed .seven-layout .mdl-layout__header {
+  z-index: 100;
+}
+
+html > body .seven-layout .mdl-layout__header {
+  background: black;
+}
+
+html > body nav.mdl-navigation.mdl-layout--large-screen-only.border-grey-light .icon-wrap * {
+  color: white;
+  border: none;
+}
+
+html > body .button-dropdown-wrapper .panel .panel-wrap {
+  padding-top: 2rem;
+  /* background: black; */
+}
+
+html > body .loading-wrap header.mdl-layout__header.mdl-layout__header--scroll.is-loaded:not(.fixed-header) {
+  background: none;
+  max-height: none;
+  display: block;
+  position: relative;
+}
+
+html > body * header:not(.fixed-header) .mdl-layout__header-row.seven-internal-header.bg-grey-superlight.text-grey-dark {
+  background: none;
+  padding: 3rem 3rem 0;
+}
+
+html > body .loading-wrap .is-loaded .mdl-layout__header-row.seven-internal-header.mdl-layout__header-row:not(.fixed-header) .seven-logo {
+  max-width: 16vw;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  position: relative;
+  top: auto;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+html > body .loading-wrap .is-loaded .mdl-layout__header-row.seven-internal-header.mdl-layout__header-row:not(.fixed-header) .seven-logo img {
+  max-width: 16vw;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  position: relative;
+  top: auto;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+html > body .footer-guest .mdl-layout__footer,
+html > body span.separation-line.border-grey-light.ng-star-inserted {
+  display: none;
+}
+
+html > body nav.mdl-navigation.mdl-layout--large-screen-only.border-grey-light {
+  border: none;
+}
+
+html > body .seven-layout .separation-line {
+  display: none;
+}

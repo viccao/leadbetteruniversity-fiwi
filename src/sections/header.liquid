@@ -129,14 +129,14 @@
             {% for link in linklists[section.settings.menu].links %}
               {% if link.links != blank %}
                 <li>
-                  <a href="{{ link.url }}">
+                  <a href="{{ link.url }}" title="Link to {{ link.title }}">
                     {{ link.title }}
                     {% include 'icon-arrow-down' %}
                   </a>
                   <ul>
                     {% for childlink in link.links %}
                       <li>
-                        <a href="{{ childlink.url }}">
+                        <a href="{{ childlink.url }}" title="Link to {{ childlink.title }}">
                           {{ childlink.title }}
                         </a>
                       </li>
@@ -145,7 +145,7 @@
                 </li>
               {% else %}
                 <li>
-                  <a href="{{ link.url }}">
+                  <a href="{{ link.url }}" title="Link to {{ link.title }}">
                     {{ link.title }}
                   </a>
                 </li>
